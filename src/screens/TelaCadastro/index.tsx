@@ -1,13 +1,15 @@
-import { Alert, View } from "react-native";
-import { Button, Container, ButtonArrow, ContainerForms, Input, Text } from "./style";
+import { Alert, TouchableOpacity } from "react-native";
+import { Button, Container, ButtonArrow, ContainerForms, TextButton, ContainerButton, Text, LinkText } from "./style";
 import React, { useState } from 'react'
 import { supabase } from "../../lib/supabase";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { FormField } from "../../components/FormField";
 
 
 export function TelaCadastro() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
     const singUpWithEmail = async () => {
@@ -20,7 +22,10 @@ export function TelaCadastro() {
         } else if (password.length < 8) {
             Alert.alert("A senha deve possuir 8 digitos!")
             console.log("A senha deve possuir 8 digitos!")
-        }else {
+        } else if (password != confirmPassword) {
+            Alert.alert("As senhas devem ser iguais!")
+            console.log("As senhas devem ser iguais!")
+        } else {
             setLoading(true)
             const { error } = await supabase.auth.signUp({
                 email: email,
@@ -40,14 +45,29 @@ export function TelaCadastro() {
                 <ArrowBackIosIcon/>
             </ButtonArrow>
             <ContainerForms>
-                <Input 
-                placeholder="email" 
-                onChangeText={(text) => setEmail(text)}></Input>
-                <Input 
-                placeholder="senha" 
-                onChangeText={(text) => setPassword(text)}></Input>
+                <FormField
+                    label="Qual é o seu e-mail?"
+                    placeholder="ex.: joao@email.com"
+                    fn={(text) => setEmail(text)}
+                    hidden={false}
+                />
+                <FormField
+                    label="Digite uma senha"
+                    placeholder="********"
+                    fn={(text) => setPassword(text)}
+                    hidden={true}
+                />
+                <FormField
+                    label="Confirme sua senha"
+                    placeholder="********"
+                    fn={(text) => setConfirmPassword(text)}
+                    hidden={true}
+                />
             </ContainerForms>
-            <Button onPress={() => singUpWithEmail()}><Text>Cadastrar</Text></Button>
+            <ContainerButton>
+                <Button onPress={() => singUpWithEmail()}><TextButton>Cadastrar</TextButton></Button>
+                <Text>Já possui conta? <TouchableOpacity><LinkText>Entrar</LinkText></TouchableOpacity></Text>
+            </ContainerButton>
         </Container>
     )
 }
