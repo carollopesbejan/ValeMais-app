@@ -1,19 +1,20 @@
-import { Alert, Pressable } from "react-native";
-import { Button, ButtonArrow, ContainerForms, TextButton, ContainerButton, Text, LinkText, Label, ContainerField } from "./style";
-import { Container } from "../../components/styles/Container";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Alert, Pressable, ActivityIndicator } from "react-native";
+import { ButtonArrow, ContainerForms, ContainerButton, Label, ContainerField } from "./style";
+import { Container } from "../../components/styles/LoginCadastro";
 import { supabase } from "../../lib/supabase";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { FormField } from "../../components/FormField";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { FormButton } from '../../components/FormButton';
+import { HasAccount } from '../../components/HasAccount';
 
-
-export function TelaCadastro() {
+export function TelaCadastro({ navigation }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
-    const singUpWithEmail = async () => {
+    const signUpWithEmail = async () => {
         if (!email || email.length == 0) {
             Alert.alert("Email inválido!")
             console.log("Email inválido")
@@ -42,7 +43,7 @@ export function TelaCadastro() {
     
     return (
         <Container>
-            <ButtonArrow>
+            <ButtonArrow onPress={() => navigation.navigate("TelaLogin")}>
                 <ArrowBackIosIcon/>
             </ButtonArrow>
             <ContainerForms>
@@ -72,8 +73,19 @@ export function TelaCadastro() {
                 </ContainerField>
             </ContainerForms>
             <ContainerButton>
-                <Button onPress={() => singUpWithEmail()}><TextButton>Cadastrar</TextButton></Button>
-                <Text>Já possui conta? <Pressable><LinkText>Entrar</LinkText></Pressable></Text>
+                {loading ? (
+                    <ActivityIndicator/>
+                ) : (
+                    <FormButton 
+                        fn={() => signUpWithEmail()}
+                        text="Cadastrar"
+                    />
+                )}
+                <HasAccount 
+                    text="Já possui conta?"
+                    fn={() => navigation.navigate("TelaLogin")}
+                    textLink="Entrar"
+                />
             </ContainerButton>
         </Container>
     )
