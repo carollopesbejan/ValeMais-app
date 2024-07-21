@@ -1,15 +1,17 @@
-import { Label, Input, Container } from "./style"
+import { Input } from "./style"
+import { useState } from "react"
 
-export const FormField = ({ label, placeholder, fn, hidden }) => {
+export const FormField = ({ placeholder, setStateText, hidden }) => {
+    const [isFocused, setIsFocused] = useState(false)
+
     return (
-        // colocar container envolvendo
-        <Container> 
-            <Label>{label}</Label>
-            <Input 
-                placeholder={placeholder} 
-                onChangeText={fn}
-                secureTextEntry={hidden}>
-            </Input>
-        </Container>
+        <Input 
+            placeholder={placeholder} 
+            onChangeText={setStateText}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            isFocused={isFocused}
+            secureTextEntry={hidden}>
+        </Input>
     )
 }

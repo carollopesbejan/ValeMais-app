@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeSemLogin } from './src/screens/HomeSemLogin';
 import { TelaCadastro } from './src/screens/TelaCadastro';
+import { ThemeProvider } from 'styled-components/native';
+import { theme } from './src/theme/theme';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +20,9 @@ function App() {
     //     <Stack.Screen name="HomeSemLogin" component={HomeSemLogin} options={{ headerShown: false }}/>
     //   </Stack.Navigator>
     // </NavigationContainer>
-    <TelaCadastro/>
+    <ThemeProvider theme={theme}>
+      <TelaCadastro/>
+    </ThemeProvider>
   );
 }
 
