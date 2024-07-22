@@ -7,6 +7,7 @@ export const Text = styled.Text`
 `;
 
 export const LinkText = styled.Text`
+    font-size: 16px;
     text-decoration: underline;
     font-weight: 700;
 `;

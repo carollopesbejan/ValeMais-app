@@ -3,7 +3,7 @@ import { FormField } from "../components/FormField";
 import { Container } from "../components/styles/LoginCadastro";
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
-import { ContainerButton, ContainerForms } from "./TelaLogin/style";
+import { Banner, ContainerButton, ContainerForms, Logo } from "./TelaLogin/style";
 import { FormButton } from "../components/FormButton";
 import { HasAccount } from "../components/HasAccount";
 
@@ -42,6 +42,8 @@ export const TelaLogin = ({ navigation }) => {
     }
     return (
         <Container>
+            <Banner source={require('../assets/bannerLogin.jpg')}  />
+            <Logo source={require('../assets/logotxt.svg')}/>
             <ContainerForms>
                 <FormField 
                     placeholder="ex.: joao@email.com"

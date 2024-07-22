@@ -3,7 +3,6 @@ import styled from "styled-components/native";
 export const ButtonArrow = styled.Pressable`
     align-self: flex-start;
     margin-left: 10%;
-    color: ${(props) => props.theme.colors.arrowColor};
 `;
 
 export const ContainerForms = styled.View`

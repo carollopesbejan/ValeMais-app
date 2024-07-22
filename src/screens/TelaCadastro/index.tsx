@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Alert, Pressable, ActivityIndicator } from "react-native";
+import { Alert, ActivityIndicator } from "react-native";
 import { ButtonArrow, ContainerForms, ContainerButton, Label, ContainerField } from "./style";
 import { Container } from "../../components/styles/LoginCadastro";
 import { supabase } from "../../lib/supabase";
 import { FormField } from "../../components/FormField";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { MaterialIcons } from '@expo/vector-icons';
 import { FormButton } from '../../components/FormButton';
 import { HasAccount } from '../../components/HasAccount';
 
@@ -44,7 +44,7 @@ export function TelaCadastro({ navigation }) {
     return (
         <Container>
             <ButtonArrow onPress={() => navigation.navigate("TelaLogin")}>
-                <ArrowBackIosIcon/>
+                <MaterialIcons name="arrow-back-ios" size={24} color="#E8A009" />
             </ButtonArrow>
             <ContainerForms>
                 <ContainerField>
