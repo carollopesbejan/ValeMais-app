@@ -1,11 +1,11 @@
 import { Pressable, Alert, ActivityIndicator } from "react-native";
-import { FormField } from "../components/FormField";
-import { Container } from "../components/styles/LoginCadastro";
+import { FormField } from "../../components/FormField";
+import { Container } from "../../components/styles/LoginCadastro";
 import { useState } from "react";
-import { supabase } from "../lib/supabase";
-import { Banner, ContainerButton, ContainerForms, Logo } from "./TelaLogin/style";
-import { FormButton } from "../components/FormButton";
-import { HasAccount } from "../components/HasAccount";
+import { supabase } from "../../lib/supabase";
+import { Banner, ContainerButton, ContainerForms, Logo } from "./style";
+import { FormButton } from "../../components/FormButton";
+import { HasAccount } from "../../components/HasAccount";
 
 export const TelaLogin = ({ navigation }) => {
     const [email, setEmail] = useState('')

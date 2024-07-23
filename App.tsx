@@ -7,7 +7,7 @@ import { HomeSemLogin } from './src/screens/HomeSemLogin';
 import { TelaCadastro } from './src/screens/TelaCadastro';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/theme/theme';
-import { TelaLogin } from './src/screens';
+import { TelaLogin } from './src/screens/TelaLogin';
 import { Home } from './src/screens/Home';
 
 const Stack = createNativeStackNavigator();
