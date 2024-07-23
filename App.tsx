@@ -7,8 +7,9 @@ import { HomeSemLogin } from './src/screens/HomeSemLogin';
 import { TelaCadastro } from './src/screens/TelaCadastro';
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/theme/theme';
-import { TelaLogin } from './src/screens';
+import { TelaLogin } from './src/screens/TelaLogin';
 import { Home } from './src/screens/Home';
+import { Preferencias } from './src/screens/TelaPreferencias';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ function App() {
           <Stack.Screen name='TelaCadastro' component={TelaCadastro} options={{headerShown: false}}/>
           <Stack.Screen name='TelaLogin' component={TelaLogin} options={{headerShown: false}}/>
           <Stack.Screen name='TelaHome' component={Home} options={{headerShown: false}}/>
+          <Stack.Screen name='TelaPreferencias' component={Preferencias} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

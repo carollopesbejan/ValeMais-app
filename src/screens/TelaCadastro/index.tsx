@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, ActivityIndicator } from "react-native";
 import { ButtonArrow, ContainerForms, ContainerButton, Label, ContainerField } from "./style";
-import { Container } from "../../components/styles/LoginCadastro";
+import { Container } from "../../components/styles/Container";
 import { supabase } from "../../lib/supabase";
 import { FormField } from "../../components/FormField";
 import { MaterialIcons } from '@expo/vector-icons';
