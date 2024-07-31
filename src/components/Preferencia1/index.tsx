@@ -7,44 +7,53 @@ export const Preferencia1 = ({ title }) => {
             <Title>{title}</Title>
             <Row>
                 <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
+                    source={require('../../assets/preferencias1/saude.png')}
+                    sourceActive={require('../../assets/preferencias1/saudeAtivo.png')}
                     text="Saúde"
                 />
                 <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
+                    source={require('../../assets/preferencias1/cabelo.png')} 
+                    sourceActive={require('../../assets/preferencias1/cabeloAtivo.png')}
+                    text="Cabelo"
                 />
                 <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
-                />
-            </Row>
-            <Row>
-                <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
-                />
-                <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
-                />
-                <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
+                    source={require('../../assets/preferencias1/beleza.png')} 
+                    sourceActive={require('../../assets/preferencias1/belezaAtivo.png')}
+                    text="Beleza"
                 />
             </Row>
             <Row>
                 <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
+                    source={require('../../assets/preferencias1/remedios.png')} 
+                    sourceActive={require('../../assets/preferencias1/saudeAtivo.png')}
+                    text="Remédios"
                 />
                 <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
+                    source={require('../../assets/preferencias1/bebe.png')} 
+                    sourceActive={require('../../assets/preferencias1/bebeAtivo.png')}
+                    text={"Mamãe\ne bebê"}
                 />
                 <IconPref 
-                    path={require('../../assets/iconPref.svg')} 
-                    text="Saúde"
+                    source={require('../../assets/preferencias1/cuidado.png')} 
+                    sourceActive={require('../../assets/preferencias1/cuidadoAtivo.png')}
+                    text={"Cuidados\nDiários"}
+                />
+            </Row>
+            <Row>
+                <IconPref 
+                    source={require('../../assets/preferencias1/vitamina.png')} 
+                    sourceActive={require('../../assets/preferencias1/vitaminaAtivo.png')}
+                    text={"Vitaminas e\nSuplementos"}
+                />
+                <IconPref 
+                    source={require('../../assets/preferencias1/dermo.png')} 
+                    sourceActive={require('../../assets/preferencias1/dermoAtivo.png')}
+                    text={"Dermo\nCosméticos"}
+                />
+                <IconPref 
+                    source={require('../../assets/preferencias1/unhas.png')} 
+                    sourceActive={require('../../assets/preferencias1/unhasAtivo.png')}
+                    text="Unhas"
                 />
             </Row>
 

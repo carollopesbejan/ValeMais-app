@@ -1,5 +1,5 @@
-import { Preferencia1 } from "../../components/Preferencia1"
-import { Container } from "./style"
+import { Preferencia1 } from "../../components/Preferencia1";
+import { Container } from "./style";
 
 export const Preferencias = () => {
     return(

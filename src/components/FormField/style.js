@@ -5,5 +5,5 @@ export const Input = styled.TextInput`
     height: 36px;
     border-radius: 8px;
     padding-left: 24px;
-    color: ${(props) => (props.isFocused ? "props.theme.colors.textColor" : "#8A8A8A")};
+    color: ${(props) => (props.theme.colors.textColor)};
 `;

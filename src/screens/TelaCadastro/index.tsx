@@ -36,8 +36,10 @@ export function TelaCadastro({ navigation }) {
             if (error) {
                 console.log(error.message)
                 Alert.alert(error.message)
+            } else {
+                setLoading(false)
+                navigation.navigate("TelaPreferencias")
             }
-            setLoading(false)
         }
     }
     

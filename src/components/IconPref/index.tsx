@@ -1,11 +1,21 @@
-import { ContainerIcon, Description, Icon } from "./style"
+import { ButtonIcon, Description, Icon } from "./style";
+import { useState } from "react";
 
-export const IconPref = ({ path, text }) => {
+export const IconPref = ({ source, text, sourceActive }) => {
+    const [path, setPath] = useState(source)
+
+    const handleIcon = () => {
+        if (path === source) {
+            setPath(sourceActive)
+        } else {
+            setPath(source)
+        }
+    }
+
     return (
-        // Transformar em botão, mudar a cor ao pressionar o icone e receber uma função que salva o text em um estado local 
-        <ContainerIcon>
+        <ButtonIcon onPress={handleIcon}>
             <Icon source={path}/>
             <Description>{text}</Description>
-        </ContainerIcon>
+        </ButtonIcon>
     )
 }
