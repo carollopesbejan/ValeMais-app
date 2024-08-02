@@ -1,7 +1,7 @@
 import { ButtonIcon, Description, Icon } from "./style";
 import { useState } from "react";
 
-export const IconPref = ({ source, text, sourceActive }) => {
+export const IconPref = ({ source, text, sourceActive, onClick }) => {
     const [path, setPath] = useState(source)
 
     const handleIcon = () => {
@@ -10,6 +10,7 @@ export const IconPref = ({ source, text, sourceActive }) => {
         } else {
             setPath(source)
         }
+        onClick()
     }
 
     return (

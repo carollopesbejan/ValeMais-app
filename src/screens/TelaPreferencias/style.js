@@ -7,3 +7,7 @@ export const Container = styled.View`
     justify-content: center;
 
 `;
+
+export const ContainerButton = styled.View`
+    width: 80%;
+`;

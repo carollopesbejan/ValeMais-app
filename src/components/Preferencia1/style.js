@@ -27,6 +27,9 @@ export const SkipText = styled.Text`
     text-decoration: underline;
     text-decoration-color: ${(props) => (props.theme.colors.preferenciasTextColor)};
     color: ${(props) => (props.theme.colors.preferenciasTextColor)};
-    align-self: flex-start;
     margin-left: 10%;
+`;
+
+export const Button = styled.Pressable`
+    align-self: flex-start;
 `;

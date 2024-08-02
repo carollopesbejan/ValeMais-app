@@ -43,7 +43,7 @@ export const TelaLogin = ({ navigation }) => {
     return (
         <Container>
             <Banner source={require('../../assets/bannerLogin.jpg')}  />
-            <Logo source={require('../../assets/logotxt.svg')}/>
+            <Logo source={require('../../assets/logotxt.png')}/>
             <ContainerForms>
                 <FormField 
                     placeholder="ex.: joao@email.com"
