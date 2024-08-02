@@ -3,8 +3,9 @@ import { IconPref } from "../IconPref";
 import { useState, useEffect } from "react";
 import { FormButton } from "../FormButton";
 import { ContainerButton } from "../../screens/TelaPreferencias/style";
+import { supabase } from "../../lib/supabase";
 
-export const Preferencia1 = ({ title, nextComponent, toHome }) => {
+export const Preferencia1 = ({ title, nextComponent, toHome, session }) => {
     const [pref1, setPref1] = useState([])
 
     const handleIconClick = (text) => {
@@ -18,13 +19,26 @@ export const Preferencia1 = ({ title, nextComponent, toHome }) => {
         })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (pref1.length == 0) {
             console.log(pref1)
         } else {
             console.log(pref1)
-            const data = pref1.join(" ; ")
+            const pref = pref1.join(" ; ")
+            console.log(pref)
+            console.log(session.user.email)
+            const id = session.user.email
+            const dados = pref
+            
+            const { data, error } = await supabase
+            .from('preferences')
+            .insert([
+            { id: id, pref1: dados },
+            ])
+            .select()
+
             console.log(data)
+
         }
         // nextComponent()
     }

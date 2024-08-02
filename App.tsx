@@ -26,7 +26,7 @@ function App() {
 
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='TelaPreferencias'>
+        <Stack.Navigator initialRouteName='TelaLogin'>
           <Stack.Screen name='TelaCadastro' component={TelaCadastro} options={{headerShown: false}}/>
           <Stack.Screen name='TelaLogin' component={TelaLogin} options={{headerShown: false}}/>
           <Stack.Screen name='TelaHome' component={Home} options={{headerShown: false}}/>
