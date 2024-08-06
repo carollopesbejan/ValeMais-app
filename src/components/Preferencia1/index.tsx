@@ -1,4 +1,4 @@
-import { Container, Title, Row, SkipText, Button } from "./style";
+import { Container, Title, Row, SkipText, Button } from "../styles/Preferencias";
 import { IconPref } from "../IconPref";
 import { useState, useEffect } from "react";
 import { FormButton } from "../FormButton";
