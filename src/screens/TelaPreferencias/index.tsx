@@ -29,12 +29,16 @@ export const Preferencias = ({ navigation }) => {
 
     const components = [
         <Preferencia1 
-                title="Escolha os categorias de produtos que você possui mais interesse"
-                nextComponent={nextComponent}
-                toHome={toHome}
-                session={session}
+            title="Escolha os categorias de produtos que você possui mais interesse"
+            nextComponent={nextComponent}
+            toHome={toHome}
+            session={session}
         />,
         <Preferencia2 
+            title="Quais marcas você possui mais interesse?"
+            nextComponent={nextComponent}
+            toHome={toHome}
+            session={session}
         />
     ]
     return(
