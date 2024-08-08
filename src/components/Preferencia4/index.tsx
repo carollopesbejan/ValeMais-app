@@ -1,6 +1,6 @@
 import { FormButton } from "../FormButton"
 import { IconPref } from "../IconPref"
-import { Button, Container, ContainerButton, Row, SkipText, Title } from "../styles/Preferencias"
+import { Button, Container, ContainerButton, Row, SkipText, Title, RowLeft, Space } from "../styles/Preferencias"
 import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 
@@ -57,63 +57,29 @@ export const Preferencia4 = ({ title, nextComponent, toHome, session }) => {
                 <Title>{title}</Title>
                 <Row>
                     <IconPref 
-                        source={require('../../assets/preferencias2/pfizer.png')}
-                        sourceActive={require('../../assets/preferencias2/pfizerAtivo.png')}
-                        text="Pfizer"
-                        onClick={() => handleIconClick("Pfizer")}
+                        source={require('../../assets/preferencias4/pequena.png')}
+                        sourceActive={require('../../assets/preferencias4/pequenaAtivo.png')}
+                        text={"Pequena (1 ou\n2 membros)"}
+                        onClick={() => handleIconClick("1 ou 2")}
                     />
                     <IconPref 
-                        source={require('../../assets/preferencias2/novartis.png')}
-                        sourceActive={require('../../assets/preferencias2/novartisAtivo.png')}
-                        text="Novartis"
-                        onClick={() => handleIconClick("Novartis")}
+                        source={require('../../assets/preferencias4/media.png')}
+                        sourceActive={require('../../assets/preferencias4/mediaAtivo.png')}
+                        text={"Média (3 ou 4\nmembros)"}
+                        onClick={() => handleIconClick("3 ou 4")}
                     />
                     <IconPref 
-                        source={require('../../assets/preferencias2/roche.png')}
-                        sourceActive={require('../../assets/preferencias2/rocheAtivo.png')}
-                        text="Roche"
-                        onClick={() => handleIconClick("Roche")}
+                        source={require('../../assets/preferencias4/grande.png')}
+                        sourceActive={require('../../assets/preferencias4/grandeAtivo.png')}
+                        text={"Grande (5 ou\nmais membros)"}
+                        onClick={() => handleIconClick("5 ou mais")}
                     />
                 </Row>
+                <RowLeft>
+                    <Space />
+                </RowLeft>
                 <Row>
-                    <IconPref 
-                        source={require('../../assets/preferencias2/merck.png')}
-                        sourceActive={require('../../assets/preferencias2/merckAtivo.png')}
-                        text="Merck"
-                        onClick={() => handleIconClick("Merck")}
-                    />
-                    <IconPref 
-                        source={require('../../assets/preferencias2/johnson.png')}
-                        sourceActive={require('../../assets/preferencias2/johnsonAtivo.png')}
-                        text={"Johnson and\nJohnson"}
-                        onClick={() => handleIconClick("Johnson and Johnson")}
-                    />
-                    <IconPref 
-                        source={require('../../assets/preferencias2/sanofi.png')}
-                        sourceActive={require('../../assets/preferencias2/sanofiAtivo.png')}
-                        text="Sanofi"
-                        onClick={() => handleIconClick("Sanofi")}
-                    />
-                </Row>
-                <Row>
-                    <IconPref 
-                        source={require('../../assets/preferencias2/astrazeneca.png')}
-                        sourceActive={require('../../assets/preferencias2/astrazenecaAtivo.png')}
-                        text="Astrazeneca"
-                        onClick={() => handleIconClick("Astrazeneca")}
-                    />
-                    <IconPref 
-                        source={require('../../assets/preferencias2/bayer.png')}
-                        sourceActive={require('../../assets/preferencias2/bayerAtivo.png')}
-                        text="Bayer"
-                        onClick={() => handleIconClick("Bayer")}
-                    />
-                    <IconPref 
-                        source={require('../../assets/preferencias2/abbott.png')}
-                        sourceActive={require('../../assets/preferencias2/abbottAtivo.png')}
-                        text={"Abbott\nLaboratories"}
-                        onClick={() => handleIconClick("Abbott Laboratories")}
-                    />
+                    <Space />
                 </Row>
                 <Button onPress={() => handleSkip()}>
                     <SkipText>Pular Preferências</SkipText>
