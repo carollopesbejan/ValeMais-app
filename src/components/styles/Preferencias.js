@@ -37,3 +37,13 @@ export const SkipText = styled.Text`
 export const Button = styled.Pressable`
     align-self: flex-start;
 `;
+
+export const Space = styled.View`
+    height: 70px;
+`;
+
+export const RowLeft = styled.View`
+    flex-direction: row;
+    align-self: flex-start;
+    margin-left: 10%;
+`;

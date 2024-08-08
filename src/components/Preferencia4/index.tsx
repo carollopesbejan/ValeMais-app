@@ -4,12 +4,12 @@ import { Button, Container, ContainerButton, Row, SkipText, Title } from "../sty
 import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 
-export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
-    const [pref2, setPref2] = useState([])
+export const Preferencia4 = ({ title, nextComponent, toHome, session }) => {
+    const [pref4, setPref4] = useState([])
 
     const handleIconClick = (text) => {
         console.log(text)
-        setPref2((prev) => {
+        setPref4((prev) => {
             if (prev.includes(text)) {
                 return prev.filter(item => item !== text);
             } else {
@@ -19,25 +19,25 @@ export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
     }
 
     const handleSubmit = async () => {
-        if (pref2.length == 0) {
-            console.log(pref2)
+        if (pref4.length == 0) {
+            console.log(pref4)
         } else {
-            console.log(pref2)
-            const pref = pref2.join(" ; ")
+            console.log(pref4)
+            const pref = pref4.join(" ; ")
             console.log(pref)
-            console.log(session.user.email)
-            const id = session.user.email
-            const dados = pref
+            // console.log(session.user.email)
+            // const id = session.user.email
+            // const dados = pref
             
             
-            const { data, error } = await supabase
-                .from('preferences')
-                .update({ pref2: dados })
-                .eq('id', id)
-                .select()
+            // const { data, error } = await supabase
+            //     .from('preferences')
+            //     .update({ pref4: dados })
+            //     .eq('id', id)
+            //     .select()
 
 
-            console.log(data)
+            // console.log(data)
 
         }
         nextComponent()
@@ -48,8 +48,8 @@ export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
     }
 
     useEffect(() => {
-        console.log(pref2);
-    }, [pref2]);
+        console.log(pref4);
+    }, [pref4]);
 
     return (
         <>

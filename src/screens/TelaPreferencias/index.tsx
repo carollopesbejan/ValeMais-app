@@ -4,9 +4,11 @@ import { Container } from "./style";
 import { useState, useEffect } from "react";
 import { Session } from "@supabase/supabase-js";
 import { supabase } from "../../lib/supabase";
+import { Preferencia3 } from "../../components/Preferencia3";
+import { Preferencia4 } from "../../components/Preferencia4";
 
 export const Preferencias = ({ navigation }) => {
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(2)
     const [session, setSession] = useState<Session | null>(null)
 
     useEffect(() => {
@@ -36,6 +38,18 @@ export const Preferencias = ({ navigation }) => {
         />,
         <Preferencia2 
             title="Quais marcas você possui mais interesse?"
+            nextComponent={nextComponent}
+            toHome={toHome}
+            session={session}
+        />,
+        <Preferencia3 
+            title="Você compra em farmácia com que frequência no mês?"
+            nextComponent={nextComponent}
+            toHome={toHome}
+            session={session}
+        />,
+        <Preferencia4 
+            title="Sua família é considerada:"
             nextComponent={nextComponent}
             toHome={toHome}
             session={session}

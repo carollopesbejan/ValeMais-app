@@ -26,18 +26,18 @@ export const Preferencia1 = ({ title, nextComponent, toHome, session }) => {
             console.log(pref1)
             const pref = pref1.join(" ; ")
             console.log(pref)
-            // console.log(session.user.email)
-            // const id = session.user.email
-            // const dados = pref
+            console.log(session.user.email)
+            const id = session.user.email
+            const dados = pref
             
-            // const { data, error } = await supabase
-            // .from('preferences')
-            // .insert([
-            // { id: id, pref1: dados },
-            // ])
-            // .select()
+            const { data, error } = await supabase
+            .from('preferences')
+            .insert([
+            { id: id, pref1: dados },
+            ])
+            .select()
 
-            // console.log(data)
+            console.log(data)
 
         }
         nextComponent()
