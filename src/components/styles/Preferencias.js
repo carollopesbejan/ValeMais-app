@@ -47,3 +47,14 @@ export const RowLeft = styled.View`
     align-self: flex-start;
     margin-left: 10%;
 `;
+
+export const RowPref5 = styled.View`
+    flex-direction: row;
+    gap: 8px;
+`;
+
+export const RowPref5Left = styled.View`
+    flex-direction: row;
+    align-self: flex-start;
+    margin-left: 5%;
+`;
