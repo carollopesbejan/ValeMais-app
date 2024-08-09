@@ -32,7 +32,7 @@ export function Perfil () {
 
                 <View style={styles.listSeparator}/>
 
-                <TouchableOpacity style={styles.containerListOpcoes}>
+                <TouchableOpacity onPress={() => navigation.navigate('Notificacoes')} style={styles.containerListOpcoes}>
                     <Feather name="bell" size={30} style={styles.iconListOpcoes}/>
                     <View style={styles.textContainerListOpcoes}>
                         <Text style={styles.titleListOpcoes}>Notificações</Text>
@@ -42,7 +42,7 @@ export function Perfil () {
 
                 <View style={styles.listSeparator}/>
 
-                <TouchableOpacity style={styles.containerListOpcoes}>
+                <TouchableOpacity onPress={() => navigation.navigate('Cupons')} style={styles.containerListOpcoes}>
                     <Feather name="tag" size={30} style={styles.iconListOpcoes}/>
                     <View style={styles.textContainerListOpcoes}>
                         <Text style={styles.titleListOpcoes}>Cupons</Text>
@@ -62,7 +62,7 @@ export function Perfil () {
 
                 <View style={styles.listSeparator}/>
 
-                <TouchableOpacity style={styles.containerListOpcoes}>
+                <TouchableOpacity onPress={() => navigation.navigate('Ajuda')} style={styles.containerListOpcoes}>
                     <Feather name="help-circle" size={30} style={styles.iconListOpcoes}/>
                     <View style={styles.textContainerListOpcoes}>
                         <Text style={styles.titleListOpcoes}>Ajuda</Text>
@@ -77,7 +77,7 @@ export function Perfil () {
                     <Feather name="settings" size={30} style={styles.iconListOpcoes}/>
                     <View style={styles.textContainerListOpcoes2}>
                         <Text style={styles.titleListOpcoes}>Configurações</Text>
-                        <Feather name="chevron-right" size={30} style={styles.chevronIcon}/>
+                        <TouchableOpacity onPress={() => navigation.navigate('Configuracoes')}><Feather name="chevron-right" size={30} style={styles.chevronIcon}/></TouchableOpacity>
                     </View>                
                 </View>
 

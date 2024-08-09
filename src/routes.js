@@ -11,6 +11,10 @@ import { BuscarMapa } from '../src/screens/BuscarMapa';
 import { Pedidos } from '../src/screens/Pedidos';
 import { Favoritos } from '../src/screens/Favoritos';
 import { Perfil } from '../src/screens/Perfil';
+import { Configuracoes } from './screens/Configuracoes';
+import { Notificacoes } from './screens/Notificacoes';
+import { Cupons } from './screens/Cupons';
+import { Ajuda } from './screens/Ajuda';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -109,6 +113,10 @@ function AppRoutes() {
             <Stack.Screen name="Splash3" component={Splash3} />
             <Stack.Screen name="HomeSemLogin" component={HomeSemLogin} />
             <Stack.Screen name="Main" component={TabRoutes} />
+            <Stack.Screen name="Configuracoes" component={Configuracoes} />
+            <Stack.Screen name="Notificacoes" component={Notificacoes} />
+            <Stack.Screen name="Cupons" component={Cupons} />
+            <Stack.Screen name="Ajuda" component={Ajuda} />
         </Stack.Navigator>
     );
 }
