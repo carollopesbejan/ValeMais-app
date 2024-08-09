@@ -25,19 +25,19 @@ export const Preferencia5 = ({ title, nextComponent, toHome, session }) => {
             console.log(pref5)
             const pref = pref5.join(" ; ")
             console.log(pref)
-            // console.log(session.user.email)
-            // const id = session.user.email
-            // const dados = pref
+            console.log(session.user.email)
+            const id = session.user.email
+            const dados = pref
             
             
-            // const { data, error } = await supabase
-            //     .from('preferences')
-            //     .update({ pref5: dados })
-            //     .eq('id', id)
-            //     .select()
+            const { data, error } = await supabase
+                .from('preferences')
+                .update({ pref5: dados })
+                .eq('id', id)
+                .select()
 
 
-            // console.log(data)
+            console.log(data)
 
         }
         nextComponent()
