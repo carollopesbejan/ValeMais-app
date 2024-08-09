@@ -13,7 +13,7 @@ export const Title = styled.Text`
     font-size: ${(props) => (props.theme.fontSize.medium)};
     font-weight: 700;
     color: ${(props) => (props.theme.colors.preferenciasTextColor)};
-    margin: 0 10%;
+    margin: 0 5%;
 `;
 
 export const Row = styled.View`

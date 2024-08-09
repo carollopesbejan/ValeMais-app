@@ -7,9 +7,10 @@ import { supabase } from "../../lib/supabase";
 import { Preferencia3 } from "../../components/Preferencia3";
 import { Preferencia4 } from "../../components/Preferencia4";
 import { Preferencia5 } from "../../components/Preferencia5";
+import { Preferencia6 } from "../../components/preferencia6";
 
 export const Preferencias = ({ navigation }) => {
-    const [page, setPage] = useState(4)
+    const [page, setPage] = useState(5)
     const [session, setSession] = useState<Session | null>(null)
 
     useEffect(() => {
@@ -58,6 +59,11 @@ export const Preferencias = ({ navigation }) => {
         <Preferencia5 
             title="Qual é a renda da sua família?"
             nextComponent={nextComponent}
+            toHome={toHome}
+            session={session}
+        />,
+        <Preferencia6 
+            title="Gostaria de receber notificações com descontos e cupons?"
             toHome={toHome}
             session={session}
         />
