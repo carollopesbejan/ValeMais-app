@@ -10,6 +10,8 @@ import { theme } from './src/theme/theme';
 import { TelaLogin } from './src/screens/TelaLogin';
 import { Home } from './src/screens/Home';
 import { Preferencias } from './src/screens/TelaPreferencias';
+import 'expo-dev-client';
+import React from 'react';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +28,7 @@ function App() {
 
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='TelaPreferencias'>
+        <Stack.Navigator initialRouteName='TelaLogin'>
           <Stack.Screen name='TelaCadastro' component={TelaCadastro} options={{headerShown: false}}/>
           <Stack.Screen name='TelaLogin' component={TelaLogin} options={{headerShown: false}}/>
           <Stack.Screen name='TelaHome' component={Home} options={{headerShown: false}}/>
