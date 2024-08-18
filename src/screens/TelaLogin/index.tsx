@@ -1,11 +1,13 @@
 import { Pressable, Alert, ActivityIndicator } from "react-native";
 import { FormField } from "../../components/FormField";
 import { Container } from "../../components/styles/Container";
-import { useState } from "react";
+import React, { useState } from "react";
 import { supabase } from "../../lib/supabase";
 import { Banner, ContainerButton, ContainerForms, Logo } from "./style";
 import { FormButton } from "../../components/FormButton";
 import { HasAccount } from "../../components/HasAccount";
+import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin'; 
+// Não está instalado da melhor forma a dependencia acima
 
 export const TelaLogin = ({ navigation }) => {
     const [email, setEmail] = useState('')
@@ -40,6 +42,37 @@ export const TelaLogin = ({ navigation }) => {
             }
         }
     }
+
+    GoogleSignin.configure({
+        scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+        webClientId: '814728365562-02155sbosu0jifaoighgs5l6el82691u.apps.googleusercontent.com',
+    })
+
+    const signInWithGoogle = async () => {
+        try {
+            await GoogleSignin.signOut();
+            await GoogleSignin.hasPlayServices()
+            const userInfo = await GoogleSignin.signIn()
+            console.log(JSON.stringify(userInfo, null, 2))
+            if (userInfo.idToken) {
+            const { data, error } = await supabase.auth.signInWithIdToken({
+                provider: 'google',
+                token: userInfo.idToken,
+            })
+            console.log(error, data)
+            if (!error) {
+                navigation.navigate("TelaHome");
+            } else {
+                console.error("Erro no Supabase:", error.message);
+            }
+            } else {
+            throw new Error('no ID token present!')
+            }
+        } catch (error: any) {
+            console.log(error)
+        }
+    }
+
     return (
         <Container>
             <Banner source={require('../../assets/bannerLogin.jpg')}  />
@@ -71,6 +104,11 @@ export const TelaLogin = ({ navigation }) => {
                     textLink="Realize um cadastro"
                 />
             </ContainerButton>
+            <GoogleSigninButton 
+                size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Dark}
+                onPress={() => signInWithGoogle()}
+            />
         </Container>
     )
 }
