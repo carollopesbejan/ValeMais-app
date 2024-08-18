@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./style";
 import { useNavigation, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { HomeSemLogin } from "../HomeSemLogin";
 
 import logoTextImg from "../../assets/logotextImg.png";
@@ -66,7 +67,7 @@ export function Splash3 () {
             <ProgressBar totalSteps={3} currentStep={3} />
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={() => navigation.navigate('HomeSemLogin')}><Text style={styles.textButton3}>Inicar Economia</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Main')}><Text style={styles.textButton3}>Inicar Economia</Text></TouchableOpacity>
             </View>
 
         </View>

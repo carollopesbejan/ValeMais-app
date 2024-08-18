@@ -28,7 +28,7 @@ export const Preferencias = ({ navigation }) => {
     }
 
     const toHome = () => {
-        navigation.navigate("TelaHome")
+        navigation.navigate("Home")
     }
 
     const components = [
