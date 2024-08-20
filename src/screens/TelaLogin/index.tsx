@@ -7,12 +7,13 @@ import { Banner, ContainerButton, ContainerForms, Logo } from "./style";
 import { FormButton } from "../../components/FormButton";
 import { HasAccount } from "../../components/HasAccount";
 import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin'; 
-// Não está instalado da melhor forma a dependencia acima
+import { useNavigation } from "@react-navigation/native";
 
-export const TelaLogin = ({ navigation }) => {
+export const TelaLogin = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const navigation = useNavigation<any>()
 
     const signInWithEmail = async () => {
         setLoading(true)

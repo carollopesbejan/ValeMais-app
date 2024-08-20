@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-import { launchImageLibrary } from 'react-native-image-picker';
+// import { launchImageLibrary } from 'react-native-image-picker';
 
 import dogImg from "../../assets/dog.png";
 
@@ -11,18 +11,18 @@ export function Configuracoes () {
     const navigation = useNavigation();
     const [imageUri, setImageUri] = useState(null);
 
-    const selectImage = () => {
-        const options = {
-            mediaType: 'photo',
-            quality: 1,
-        };
+    // const selectImage = () => {
+    //     const options = {
+    //         mediaType: 'photo',
+    //         quality: 1,
+    //     };
 
-        launchImageLibrary(options, response => {
-            if (response.assets && response.assets.length > 0) {
-                setImageUri(response.assets[0].uri);
-            }
-        });
-    };
+    //     launchImageLibrary(options, response => {
+    //         if (response.assets && response.assets.length > 0) {
+    //             setImageUri(response.assets[0].uri);
+    //         }
+    //     });
+    // };
 
     return (
         <View style={styles.container}>

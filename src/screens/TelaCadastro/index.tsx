@@ -7,12 +7,14 @@ import { FormField } from "../../components/FormField";
 import { MaterialIcons } from '@expo/vector-icons';
 import { FormButton } from '../../components/FormButton';
 import { HasAccount } from '../../components/HasAccount';
+import { useNavigation } from '@react-navigation/native';
 
-export function TelaCadastro({ navigation }) {
+export function TelaCadastro() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const navigation = useNavigation<any>()
 
     const signUpWithEmail = async () => {
         if (!email || email.length == 0) {
