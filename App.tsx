@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import AppRoutes from './src/routes'; // Certifique-se de usar export default
+import AppRoutes from './src/routes';
 
 export default function App() {
   return (
