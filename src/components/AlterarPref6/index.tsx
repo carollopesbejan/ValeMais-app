@@ -4,8 +4,11 @@ import { Button, Container, ContainerButton, Row, SkipText, Title, RowLeft, Spac
 import React, { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 
-export const Preferencia6 = ({ title, toHome, session }) => {
+export const AlterarPref6 = ({ title, toPerfil, session }) => {
     const [pref6, setPref6] = useState([])
+    const [activeWhatsapp, setActiveWhatsapp] = useState<boolean>(false)
+    const [activeNotificacao, setActiveNotificacao] = useState<boolean>(false)
+    const [activeEmail, setActiveEmail] = useState<boolean>(false)
 
     const handleIconClick = (text) => {
         console.log(text)
@@ -25,8 +28,8 @@ export const Preferencia6 = ({ title, toHome, session }) => {
             console.log(pref6)
             const pref = pref6.join(" ; ")
             console.log(pref)
-            console.log(session.user.email)
-            const id = session.user.email
+            console.log(session)
+            const id = session
             const dados = pref
             
             
@@ -40,15 +43,42 @@ export const Preferencia6 = ({ title, toHome, session }) => {
             console.log(data)
 
         }
-        toHome()
+        toPerfil()
     }
 
     const handleSkip = () => {
-        toHome()
+        toPerfil()
+    }
+
+    const fetchPreferences = async () => {
+        const { data: preferences, error } = await supabase
+            .from('preferences')
+            .select('pref6')
+            .eq('id', session);
+
+        if (error) {
+            console.error('Erro ao buscar preferências:', error);
+        } else if (preferences && preferences.length > 0) {
+            const prefArray = preferences[0].pref6.split(' ; ');
+            setPref6(prefArray);
+        }
     }
 
     useEffect(() => {
+        fetchPreferences()
+    }, [])
+
+    useEffect(() => {
         console.log(pref6);
+        if (pref6.includes('whatsapp')) {
+            setActiveWhatsapp(true)
+        }
+        if (pref6.includes('notificação')) {
+            setActiveNotificacao(true)
+        }
+        if (pref6.includes('e-mail')) {
+            setActiveEmail(true)
+        }
     }, [pref6]);
 
     return (
@@ -60,21 +90,21 @@ export const Preferencia6 = ({ title, toHome, session }) => {
                         source={require('../../assets/preferencias6/whatsapp.png')}
                         sourceActive={require('../../assets/preferencias6/whatsappAtivo.png')}
                         text="Whatsapp"
-                        active={false}
+                        active={activeWhatsapp}
                         onClick={() => handleIconClick("whatsapp")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias6/notificacao.png')}
                         sourceActive={require('../../assets/preferencias6/notificacaoAtivo.png')}
                         text="Notificação"
-                        active={false}
+                        active={activeNotificacao}
                         onClick={() => handleIconClick("notificação")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias6/email.png')}
                         sourceActive={require('../../assets/preferencias6/emailAtivo.png')}
                         text="E-mail"
-                        active={false}
+                        active={activeEmail}
                         onClick={() => handleIconClick("e-mail")}
                     />
                 </Row>

@@ -5,8 +5,12 @@ import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 import React from "react"
 
-export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
+export const AlterarPref3 = ({ title, nextComponent, toPerfil, session }) => {
     const [pref3, setPref3] = useState([])
+    const [active1, setActive1] = useState<boolean>(false)
+    const [active1ou2, setActive1ou2] = useState<boolean>(false)
+    const [active3ou4, setActive3ou4] = useState<boolean>(false)
+    const [active5ouMais, setActive5ouMais] = useState<boolean>(false)
 
     const handleIconClick = (text) => {
         console.log(text)
@@ -26,8 +30,8 @@ export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
             console.log(pref3)
             const pref = pref3.join(" ; ")
             console.log(pref)
-            console.log(session.user.email)
-            const id = session.user.email
+            console.log(session)
+            const id = session
             const dados = pref
             
             
@@ -45,11 +49,41 @@ export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
     }
 
     const handleSkip = () => {
-        toHome()
+        toPerfil()
+    }
+
+    const fetchPreferences = async () => {
+        const { data: preferences, error } = await supabase
+            .from('preferences')
+            .select('pref3')
+            .eq('id', session);
+
+        if (error) {
+            console.error('Erro ao buscar preferências:', error);
+        } else if (preferences && preferences.length > 0) {
+            const prefArray = preferences[0].pref3.split(' ; ');
+            setPref3(prefArray);
+        }
     }
 
     useEffect(() => {
+        fetchPreferences()
+    }, [])
+
+    useEffect(() => {
         console.log(pref3);
+        if (pref3.includes('1')) {
+            setActive1(true)
+        }
+        if (pref3.includes('1 ou 2')) {
+            setActive1ou2(true)
+        }
+        if (pref3.includes('3 ou 4')) {
+            setActive3ou4(true)
+        }
+        if (pref3.includes('5 ou mais')) {
+            setActive5ouMais(true)
+        }
     }, [pref3]);
 
     return (
@@ -61,21 +95,21 @@ export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias3/1.png')}
                         sourceActive={require('../../assets/preferencias3/1Ativo.png')}
                         text="Até 1 vez"
-                        active={false}
+                        active={active1}
                         onClick={() => handleIconClick("1")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias3/1ou2.png')}
                         sourceActive={require('../../assets/preferencias3/1ou2Ativo.png')}
                         text={"Entre 1 e 2\nvezes"}
-                        active={false}
+                        active={active1ou2}
                         onClick={() => handleIconClick("1 ou 2")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias3/3ou4.png')}
                         sourceActive={require('../../assets/preferencias3/3ou4Ativo.png')}
                         text={"Entre 3 e 4\nvezes"}
-                        active={false}
+                        active={active3ou4}
                         onClick={() => handleIconClick("3 ou 4")}
                     />
                 </Row>
@@ -84,7 +118,7 @@ export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias3/5.png')}
                         sourceActive={require('../../assets/preferencias3/5Ativo.png')}
                         text={"Acima de 5\nvezes"}
-                        active={false}
+                        active={active5ouMais}
                         onClick={() => handleIconClick("5 ou mais")}
                     />
                 </RowLeft>
