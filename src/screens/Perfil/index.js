@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./style";
 import { useNavigation, NavigationContainer } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+import React from "react";
 
 import dogImg from "../../assets/dog.png";
 
@@ -52,7 +53,7 @@ export function Perfil () {
 
                 <View style={styles.listSeparator}/>
 
-                <TouchableOpacity style={styles.containerListOpcoes}>
+                <TouchableOpacity onPress={() => navigation.navigate('AlterarPreferencias')} style={styles.containerListOpcoes}>
                     <Feather name="smile" size={30} style={styles.iconListOpcoes}/>
                     <View style={styles.textContainerListOpcoes}>
                         <Text style={styles.titleListOpcoes}>Alterar preferências</Text>

@@ -1,17 +1,19 @@
 import { Preferencia1 } from "../../components/Preferencia1";
 import { Preferencia2 } from "../../components/Preferencia2";
-import { Container } from "./style";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Session } from "@supabase/supabase-js";
 import { supabase } from "../../lib/supabase";
 import { Preferencia3 } from "../../components/Preferencia3";
 import { Preferencia4 } from "../../components/Preferencia4";
 import { Preferencia5 } from "../../components/Preferencia5";
 import { Preferencia6 } from "../../components/preferencia6";
+import { useNavigation } from "@react-navigation/native";
+import { ContainerPref } from "../../components/styles/ContainerPref";
 
-export const Preferencias = ({ navigation }) => {
-    const [page, setPage] = useState(5)
+export const Preferencias = () => {
+    const [page, setPage] = useState(0)
     const [session, setSession] = useState<Session | null>(null)
+    const navigation = useNavigation<any>()
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -28,7 +30,7 @@ export const Preferencias = ({ navigation }) => {
     }
 
     const toHome = () => {
-        navigation.navigate("Home")
+        navigation.navigate('Main')
     }
 
     const components = [
@@ -69,8 +71,8 @@ export const Preferencias = ({ navigation }) => {
         />
     ]
     return(
-        <Container>
+        <ContainerPref>
             {components[page]}
-        </Container>
+        </ContainerPref>
     )
 }

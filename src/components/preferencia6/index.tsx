@@ -1,7 +1,7 @@
 import { FormButton } from "../FormButton"
 import { IconPref } from "../IconPref"
 import { Button, Container, ContainerButton, Row, SkipText, Title, RowLeft, Space } from "../styles/Preferencias"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 
 export const Preferencia6 = ({ title, toHome, session }) => {
@@ -56,7 +56,7 @@ export const Preferencia6 = ({ title, toHome, session }) => {
             <Container>
                 <Title>{title}</Title>
                 <Row>
-                    <IconPref 
+                    {/* <IconPref 
                         source={require('../../assets/preferencias6/whatsapp.png')}
                         sourceActive={require('../../assets/preferencias6/whatsappAtivo.png')}
                         text="Whatsapp"
@@ -73,7 +73,7 @@ export const Preferencia6 = ({ title, toHome, session }) => {
                         sourceActive={require('../../assets/preferencias6/emailAtivo.png')}
                         text="E-mail"
                         onClick={() => handleIconClick("e-mail")}
-                    />
+                    /> */}
                 </Row>
                 <RowLeft>
                     <Space />

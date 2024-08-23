@@ -39,7 +39,7 @@ export const TelaLogin = () => {
             } else {
                 setLoading(false)
                 console.log("Logou")
-                navigation.navigate("TelaHome")
+                navigation.navigate("Main")
             }
         }
     }
@@ -62,7 +62,7 @@ export const TelaLogin = () => {
             })
             console.log(error, data)
             if (!error) {
-                navigation.navigate("TelaHome");
+                navigation.navigate("Main");
             } else {
                 console.error("Erro no Supabase:", error.message);
             }

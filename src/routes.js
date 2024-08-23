@@ -20,7 +20,7 @@ import { ThemeProvider } from 'styled-components/native';
 import { theme } from '../src/theme/theme';
 import { TelaLogin } from '../src/screens/TelaLogin';
 import { Preferencias } from '../src/screens/TelaPreferencias';
-import { Home } from './screens/Home';
+import { AlterarPreferencias } from './screens/AlterarPreferencias';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -122,11 +122,12 @@ function AppRoutes() {
                 <Stack.Screen name='TelaLogin' component={TelaLogin} options={{headerShown: false}}/>
                 <Stack.Screen name='TelaPreferencias' component={Preferencias} options={{headerShown: false}}/>
                 <Stack.Screen name="HomeSemLogin" component={HomeSemLogin} />
-                <Stack.Screen name='TelaHome' component={Home} />
                 <Stack.Screen name="Configuracoes" component={Configuracoes} />
                 <Stack.Screen name="Notificacoes" component={Notificacoes} />
                 <Stack.Screen name="Cupons" component={Cupons} />
                 <Stack.Screen name="Ajuda" component={Ajuda} />
+                <Stack.Screen name="AlterarPreferencias" component={AlterarPreferencias} />
+                <Stack.Screen name="Perfil" component={Perfil} />
                 <Stack.Screen name="Main" component={TabRoutes} />
             </Stack.Navigator>
         </ThemeProvider>

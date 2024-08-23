@@ -37,7 +37,7 @@ export function Configuracoes () {
                 <Text style={styles.textUser}>Olá, usuário fulano</Text>
 
                 <View style={styles.imageContainer}>
-                    <TouchableOpacity onPress={selectImage}>
+                    <TouchableOpacity onPress={() => {}}>
                         <Image style={styles.imageUser} source={imageUri ? { uri: imageUri } : dogImg}/>
                         <View style={styles.textOverlayContainer}>
                             <Text style={styles.textOverlay}>Alterar Imagem</Text>
