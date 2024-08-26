@@ -1,6 +1,6 @@
 import { Pressable, Alert, ActivityIndicator } from "react-native";
 import { FormField } from "../../components/FormField";
-import { Container } from "../../components/styles/Container";
+import { Container, ContainerLogin } from "../../components/styles/Container";
 import React, { useState } from "react";
 import { supabase } from "../../lib/supabase";
 import { Banner, ContainerButton, ContainerForms, Logo } from "./style";
@@ -83,7 +83,7 @@ export const TelaLogin = () => {
     }
 
     return (
-        <Container>
+        <ContainerLogin>
             <Banner source={require('../../assets/bannerLogin.jpg')}  />
             <Logo source={require('../../assets/logotxt.png')}/>
             <ContainerForms>
@@ -118,6 +118,6 @@ export const TelaLogin = () => {
                 color={GoogleSigninButton.Color.Dark}
                 onPress={() => signInWithGoogle()}
             />
-        </Container>
+        </ContainerLogin>
     )
 }
