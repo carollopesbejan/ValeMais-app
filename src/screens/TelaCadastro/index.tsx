@@ -22,7 +22,7 @@ export function TelaCadastro() {
     }
 
     const validatePassword = (password) => {
-        const regex = /^[a-zA-Z!@#$%_\\-]+$/;
+        const regex = /^[a-zA-Z0-9!@#$%_\\-]+$/;
         return regex.test(password);
     };
 
@@ -36,12 +36,9 @@ export function TelaCadastro() {
         } else if (!validatePassword(password)) {
             Alert.alert("Senha inválido!")
             console.log("bug resolvido!")
-        } else if (!password || password.length == 0 || password.length > 23) { 
-            Alert.alert("Senha inválido!")
-            console.log("Senha inválida!")
-        } else if (password.length < 8) {
-            Alert.alert("A senha deve possuir 8 digitos!")
-            console.log("A senha deve possuir 8 digitos!")
+        } else if (!password || password.length == 0 || password.length > 23 || password.length < 8) { 
+            Alert.alert("A senha deve conter mínimo de oito caracteres e o máximo de vinte e três caracteres, sendo permitido letras, números e os caracteres especiais: !-_@#$%")
+            console.log("A senha deve conter mínimo de oito caracteres e o máximo de vinte e três caracteres, sendo permitido letras, números e os caracteres especiais: !-_@#$%")
         } else if (password != confirmPassword) {
             Alert.alert("As senhas devem ser iguais!")
             console.log("As senhas devem ser iguais!")
@@ -52,8 +49,15 @@ export function TelaCadastro() {
                 password: password,
             })
             if (error) {
-                console.log(error.message)
-                Alert.alert(error.message)
+                if (error.message === "User already registered") {
+                    Alert.alert("Usuário já cadastrado!")
+                    setLoading(false)
+                } else {
+                    console.log(error.message)
+                    console.log(error)
+                    Alert.alert(error.message)
+                    setLoading(false)
+                }
             } else {
                 setLoading(false)
                 navigation.navigate("TelaPreferencias")
