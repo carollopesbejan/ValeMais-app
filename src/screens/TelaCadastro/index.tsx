@@ -29,7 +29,7 @@ export function TelaCadastro() {
         } else if (!validateEmail(email)) {
             Alert.alert("Email inválido!")
             console.log("Email inválido")
-        } else if (!password || password.length == 0) { 
+        } else if (!password || password.length == 0 || password.length > 23) { 
             Alert.alert("Senha inválido!")
             console.log("Senha inválida!")
         } else if (password.length < 8) {
