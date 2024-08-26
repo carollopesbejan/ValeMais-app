@@ -31,10 +31,9 @@ export const TelaLogin = () => {
                 email: email,
                 password: password,
             })
-
-            if (error) {
-                Alert.alert(error.message)
-                console.log(error.message)
+            console.log(error)
+            if (error.message === "Invalid login credentials") {
+                Alert.alert("Esse email não está cadastrado. Realize o cadastro")
                 setLoading(false)
             } else {
                 setLoading(false)
