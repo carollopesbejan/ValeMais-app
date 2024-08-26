@@ -18,9 +18,13 @@ export function TelaCadastro() {
 
     const validateEmail = (email) => {
         const regex = /^[a-zA-Z0-9.@-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
         return regex.test(email)
     }
+
+    const validatePassword = (password) => {
+        const regex = /^[a-zA-Z!@#$%_\\-]+$/;
+        return regex.test(password);
+    };
 
     const signUpWithEmail = async () => {
         if (!email || email.length == 0) {
@@ -29,6 +33,9 @@ export function TelaCadastro() {
         } else if (!validateEmail(email)) {
             Alert.alert("Email inválido!")
             console.log("Email inválido")
+        } else if (!validatePassword(password)) {
+            Alert.alert("Senha inválido!")
+            console.log("bug resolvido!")
         } else if (!password || password.length == 0 || password.length > 23) { 
             Alert.alert("Senha inválido!")
             console.log("Senha inválida!")
