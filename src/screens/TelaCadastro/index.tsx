@@ -27,21 +27,23 @@ export function TelaCadastro() {
     };
 
     const signUpWithEmail = async () => {
-        if (!email || email.length == 0) {
-            Alert.alert("Email inválido!")
+        if (!email || email.length == 0 || !validateEmail(email)) {
+            Alert.alert(
+                "Atenção",
+                "Email inválido!"
+            )
             console.log("Email inválido")
-        } else if (!validateEmail(email)) {
-            Alert.alert("Email inválido!")
-            console.log("Email inválido")
-        } else if (!validatePassword(password)) {
-            Alert.alert("Senha inválido!")
-            console.log("bug resolvido!")
-        } else if (!password || password.length == 0 || password.length > 23 || password.length < 8) { 
-            Alert.alert("A senha deve conter mínimo de oito caracteres e o máximo de vinte e três caracteres, sendo permitido letras, números e os caracteres especiais: !-_@#$%")
-            console.log("A senha deve conter mínimo de oito caracteres e o máximo de vinte e três caracteres, sendo permitido letras, números e os caracteres especiais: !-_@#$%")
+        } else if (!validatePassword(password) || !password || password.length == 0 || password.length > 23 || password.length < 8) {
+            Alert.alert(
+                "Atenção",
+                "A senha deve conter mínimo de 8 caracteres e o máximo de 23 caracteres. " +
+                "Permitido: letras, números e os caracteres especiais: !-_@#$%"
+              )
         } else if (password != confirmPassword) {
-            Alert.alert("As senhas devem ser iguais!")
-            console.log("As senhas devem ser iguais!")
+            Alert.alert(
+                "Atenção",
+                "As senhas devem ser iguais!"
+            )
         } else {
             setLoading(true)
             const { error } = await supabase.auth.signUp({
@@ -50,7 +52,10 @@ export function TelaCadastro() {
             })
             if (error) {
                 if (error.message === "User already registered") {
-                    Alert.alert("Usuário já cadastrado!")
+                    Alert.alert(
+                        "Atenção",
+                        "Usuário já cadastrado!"
+                    )
                     setLoading(false)
                 } else {
                     console.log(error.message)

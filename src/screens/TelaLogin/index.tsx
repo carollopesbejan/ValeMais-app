@@ -18,14 +18,20 @@ export const TelaLogin = () => {
     const signInWithEmail = async () => {
         setLoading(true)
         if (!email || email.length == 0) {
-            Alert.alert("Email inválido!")
-            console.log("Email inválido")
+            Alert.alert(
+                "Atenção",
+                "Email inválido!"
+            )
         } else if (!password || password.length == 0) { 
-            Alert.alert("Senha inválido!")
-            console.log("Senha inválida!")
+            Alert.alert(
+                "Atenção",
+                "Senha inválido!"
+            )
         } else if (password.length < 8) {
-            Alert.alert("A senha deve possuir 8 digitos!")
-            console.log("A senha deve possuir 8 digitos!")
+            Alert.alert(
+                "Atenção",
+                "A senha deve possuir 8 digitos!"
+            )
         } else {
             const { error } = await supabase.auth.signInWithPassword({
                 email: email,
@@ -33,7 +39,10 @@ export const TelaLogin = () => {
             })
             console.log(error)
             if (error.message === "Invalid login credentials") {
-                Alert.alert("Esse email não está cadastrado. Realize o cadastro")
+                Alert.alert(
+                    "Atenção",
+                    "Esse email não está cadastrado. Realize o cadastro"
+                )
                 setLoading(false)
             } else {
                 setLoading(false)
