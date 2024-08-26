@@ -16,8 +16,17 @@ export function TelaCadastro() {
     const [loading, setLoading] = useState(false)
     const navigation = useNavigation<any>()
 
+    const validateEmail = (email) => {
+        const regex = /^[a-zA-Z0-9.@-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        return regex.test(email)
+    }
+
     const signUpWithEmail = async () => {
         if (!email || email.length == 0) {
+            Alert.alert("Email inválido!")
+            console.log("Email inválido")
+        } else if (!validateEmail(email)) {
             Alert.alert("Email inválido!")
             console.log("Email inválido")
         } else if (!password || password.length == 0) { 
