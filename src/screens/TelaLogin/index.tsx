@@ -37,13 +37,16 @@ export const TelaLogin = () => {
                 email: email,
                 password: password,
             })
-            console.log(error)
-            if (error.message === "Invalid login credentials") {
-                Alert.alert(
-                    "Atenção",
-                    "Esse email não está cadastrado. Realize o cadastro"
-                )
-                setLoading(false)
+            if (error) {
+                if (error.message === "Invalid login credentials") {
+                    Alert.alert(
+                        "Atenção",
+                        "As credenciais fornecidas estão incorretas ou não existem"
+                    )
+                    setLoading(false)
+                } else {
+                    console.log(error)
+                }
             } else {
                 setLoading(false)
                 console.log("Logou")
@@ -95,7 +98,7 @@ export const TelaLogin = () => {
                 <FormField 
                     placeholder="********"
                     setStateText={(text) => setPassword(text)}
-                    hidden={false}
+                    hidden={true}
                     />
             </ContainerForms>
             <ContainerButton>
