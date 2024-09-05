@@ -31,6 +31,9 @@ export const ButtonContainer = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 92%; 
+  background-color: #e5e5e5; 
+  border-radius: 10px; 
   margin-bottom: 20px;
 `;
 
@@ -39,14 +42,16 @@ export const TabButton = styled.TouchableOpacity`
   padding: 10px;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => (props.active ? '#fff' : '#FFA500')};
-  border-radius: 5px;
-  margin: 0 5px;
+  background-color: ${(props) => (props.active ? '#FAAC56' : 'transparent')}; /* Transparente para a aba inativa */
+  border-radius: 10px; 
+  margin: 2px;
+  border-bottom-width: ${(props) => (props.active ? '0px' : '0')}; /* Sem borda na aba ativa */
 `;
 
 export const ButtonText = styled.Text`
   font-size: 18px;
-  color: ${(props) => (props.active ? '#000' : '#fff')};
+  color: ${(props) => (props.active ? '#FFF' : '#777')}; /* Cor de texto cinza para a aba inativa */
+  font-weight: ${(props) => (props.active ? 'bold' : 'normal')}; /* Texto em negrito na aba ativa */
 `;
 
 export const ProductCard = styled.TouchableOpacity`
@@ -94,4 +99,39 @@ export const HeartIcon = styled.TouchableOpacity`
 export const HeartText = styled.Text`
   font-size: 18px;
   color: #ff3e3e;
+`;
+
+// Estilos para as Farmácias
+export const PharmacyCard = styled.TouchableOpacity`
+  background-color: #fff;
+  width: 97.5%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-left: 5px;
+  padding: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const PharmacyImage = styled.Image`
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+`;
+
+export const PharmacyInfo = styled.View`
+  flex: 1;
+  margin-left: 10px;
+`;
+
+export const PharmacyName = styled.Text`
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+`;
+
+export const PharmacyRating = styled.Text`
+  font-size: 14px;
+  color: #777;
 `;

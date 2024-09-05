@@ -16,7 +16,12 @@ import {
   ProductPriceNew,
   ProductName,
   HeartIcon,
-  HeartText, // Importando o HeartText
+  HeartText,
+  PharmacyCard,
+  PharmacyImage,
+  PharmacyInfo,
+  PharmacyName,
+  PharmacyRating,
 } from './style';
 
 type NavigationProp = {
@@ -50,21 +55,85 @@ const favoritosData = [
   },
 ];
 
+const farmaciasData = [
+  {
+    id: '1',
+    name: 'Farmácia Faustino',
+    rating: '4,5',
+    location: 'Cordeiro',
+    distance: '2,8 km',
+    image: require('../../assets/favoritos/farmaciaFaustino.png'),
+  },
+  {
+    id: '2',
+    name: 'Pense S.A.',
+    rating: '4,5',
+    location: 'Zumbi',
+    distance: '2,8 km',
+    image: require('../../assets/favoritos/penseSa.png'),
+  },
+  {
+    id: '3',
+    name: 'Lopes Farma',
+    rating: '4,5',
+    location: 'Caxangá',
+    distance: '2,8 km',
+    image: require('../../assets/favoritos/lopesFarma.png'),
+  },
+];
+
 export function Favoritos() {
   const navigation = useNavigation<NavigationProp>();
   const [activeTab, setActiveTab] = useState('Produtos');
+  const [favoriteProducts, setFavoriteProducts] = useState<string[]>([]); // IDs dos produtos favoritos
+  const [favoritePharmacies, setFavoritePharmacies] = useState<string[]>([]); // IDs das farmácias favoritas
 
-  const renderItem = ({ item }) => (
+  // Função para alternar produto dos favoritos
+  const toggleFavoriteProduct = (productId: string) => {
+    setFavoriteProducts((prevFavorites) => {
+      if (prevFavorites.includes(productId)) {
+        return prevFavorites.filter(id => id !== productId); // Remove o produto dos favoritos
+      } else {
+        return [...prevFavorites, productId]; // Adiciona o produto aos favoritos
+      }
+    });
+  };
+
+  // Função para alternar farmácia dos favoritos
+  const toggleFavoritePharmacy = (pharmacyId: string) => {
+    setFavoritePharmacies((prevFavorites) => {
+      if (prevFavorites.includes(pharmacyId)) {
+        return prevFavorites.filter(id => id !== pharmacyId); // Remove a farmácia dos favoritos
+      } else {
+        return [...prevFavorites, pharmacyId]; // Adiciona a farmácia aos favoritos
+      }
+    });
+  };
+
+  const renderProductItem = ({ item }) => (
     <ProductCard onPress={() => console.log(item.name)}>
       <ProductImage source={item.image} />
-      <HeartIcon onPress={() => console.log(`Favoritar: ${item.name}`)}>
-        <HeartText>❤️</HeartText>
+      <HeartIcon onPress={() => toggleFavoriteProduct(item.id)}>
+        <HeartText>{favoriteProducts.includes(item.id) ? '💔' : '❤️'}</HeartText>
       </HeartIcon>
       <ProductInfo>
         <ProductPriceNew>{item.price}</ProductPriceNew>
         <ProductName>{item.name}</ProductName>
       </ProductInfo>
     </ProductCard>
+  );
+
+  const renderPharmacyItem = ({ item }) => (
+    <PharmacyCard onPress={() => console.log(item.name)}>
+      <PharmacyImage source={item.image} />
+      <PharmacyInfo>
+        <PharmacyName>{item.name}</PharmacyName>
+        <PharmacyRating>⭐ {item.rating} • {item.location} • {item.distance}</PharmacyRating>
+      </PharmacyInfo>
+      <HeartIcon onPress={() => toggleFavoritePharmacy(item.id)}>
+        <HeartText>{favoritePharmacies.includes(item.id) ? '💔' : '❤️'}</HeartText>
+      </HeartIcon>
+    </PharmacyCard>
   );
 
   return (
@@ -91,17 +160,25 @@ export function Favoritos() {
         </TabButton>
       </ButtonContainer>
 
-      {/* Renderiza a lista de produtos favoritos quando a aba "Produtos" está ativa */}
       {activeTab === 'Produtos' && (
         <FlatList
           data={favoritosData}
-          renderItem={renderItem}
+          renderItem={renderProductItem}
           keyExtractor={(item) => item.id}
           numColumns={2}
           contentContainerStyle={{
             paddingBottom: 30,
             justifyContent: 'space-between',
           }}
+          showsVerticalScrollIndicator={false}
+        />
+      )}
+
+      {activeTab === 'Farmácias' && (
+        <FlatList
+          data={farmaciasData}
+          renderItem={renderPharmacyItem}
+          keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
         />
       )}

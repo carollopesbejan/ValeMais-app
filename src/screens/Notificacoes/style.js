@@ -40,3 +40,26 @@ export const ChevronIcon = styled(Feather).attrs({
   margin-left: 15px;
   color: #FAAC56;
 `;
+
+// Contêiner de notificação
+export const NotificationContainer = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+`;
+
+export const NotificationText = styled.Text`
+  font-size: 18px;
+  color: #141414;
+`;
+
+// Texto para notificações vazias
+export const EmptyNotificationText = styled.Text`
+  font-size: 18px;
+  color: #141414;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+`;
