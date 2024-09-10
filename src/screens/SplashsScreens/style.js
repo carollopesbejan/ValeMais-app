@@ -1,90 +1,85 @@
-import { StyleSheet } from "react-native";
+import styled from 'styled-components/native';
 
-export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#F3F1F4",
-      alignItems: 'center',
-      justifyContent: "center",
-    },
+export const Container = styled.View`
+  flex: 1;
+  background-color: #F3F1F4;
+  align-items: center;
+  justify-content: center;
+`;
 
-    logotextImg: {
-      width: "78.5%",
-      height: "7.5%",
-      marginTop: 140,
-      marginLeft: 12,
-      marginRight: 12,
-      marginBottom: 10,
-    },
+export const LogoTextImg = styled.Image`
+  width: 78.5%;
+  height: 7.5%;
+  margin-top: 140px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 10px;
+`;
 
-    logoImg: {
-      width: "60%",
-      height: "30%",
-      marginTop: 30,
-      marginBottom: 15,
-    },
+export const LogoImg = styled.Image`
+  width: 60%;
+  height: 30%;
+  margin-top: 30px;
+  margin-bottom: 15px;
+`;
 
-    etiquetadescontoImg: {
-      marginTop: 187,
-      width: "73.5%",
-      height: "36%",
-      marginBottom: 20,
-    },
+export const EtiquetaDescontoImg = styled.Image`
+  margin-top: 187px;
+  width: 73.5%;
+  height: 36%;
+  margin-bottom: 20px;
+`;
 
-    pilulaImg: {
-      marginTop: 201,
-      width: "88%",
-      height: "31%",
-      marginBottom: 15,
-    },
+export const PilulaImg = styled.Image`
+  margin-top: 201px;
+  width: 88%;
+  height: 31%;
+  margin-bottom: 15px;
+`;
 
-    textDestaqueSplash1: {
-      fontSize: 20,
-      fontWeight: 'bold', 
-      color: '#076D78',
-      marginTop: 30,
-      marginBottom: 10, 
-    },
+export const TextDestaque = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: #076D78;
+  margin-top: 30px;
+  margin-bottom: 10px;
+`;
 
-    textSplash1: {
-      fontSize: 17,
-      marginLeft: 30,
-      marginRight: 30, 
-      color: '#076D78',
-      textAlign: 'center',
-    },
+export const TextDescription = styled.Text`
+  font-size: 17px;
+  margin-left: 30px;
+  margin-right: 30px;
+  color: #076D78;
+  text-align: center;
+`;
 
-    buttonContainer: {
-      marginTop: 40,
-      flex: 1,
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
+export const ButtonContainer = styled.View`
+  margin-top: 40px;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+`;
 
-    textButton1: {
-      marginTop: 30, 
-      marginHorizontal: 115,
-      fontSize: 18,
-      color: '#076D78',
-    },
+export const TextButton = styled.Text`
+  margin-top: 30px;
+  margin-horizontal: 115px;
+  font-size: 18px;
+  color: #076D78;
+`;
 
-    textButton2: {
-      marginTop: 35, 
-      marginHorizontal: 115,
-      fontSize: 18,
-      color: '#076D78',
-      fontWeight: 'bold', 
-    },
+export const TextButtonBold = styled(TextButton)`
+  margin-top: 35px;
+  font-weight: bold;
+`;
 
-    textButton3: {
-      fontSize: 18,
-      color: '#FFF',
-      marginTop: 35, 
-      backgroundColor: '#FFC17D',
-      paddingVertical: 10,
-      paddingHorizontal: 105,
-      borderRadius: 8,
-      borderWidth: 0,
-    },
-
-  });
+export const TextButtonPrimary = styled.Text`
+  font-size: 18px;
+  font-weight: bold;
+  color: #141414;
+  margin-top: 35px;
+  background-color: #FFC17D;
+  padding-vertical: 10px;
+  padding-horizontal: 105px;
+  border-radius: 8px;
+  border-width: 0;
+`;

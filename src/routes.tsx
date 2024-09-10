@@ -4,22 +4,22 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Feather } from '@expo/vector-icons';
 
-import { Splash1, Splash2, Splash3 } from '../src/screens/SplashsScreens';
-import { HomeSemLogin } from '../src/screens/HomeSemLogin';
-import { HomeLogin } from '../src/screens/HomeLogin';
-import { BuscarMapa } from '../src/screens/BuscarMapa';
-import { Pedidos } from '../src/screens/Pedidos';
-import { Favoritos } from '../src/screens/Favoritos';
-import { Perfil } from '../src/screens/Perfil';
+import { Splash1, Splash2, Splash3 } from './screens/SplashsScreens';
+import { HomeSemLogin } from './screens/HomeSemLogin';
+import { HomeLogin } from './screens/HomeLogin';
+import { BuscarMapa } from './screens/BuscarMapa';
+import { Pedidos } from './screens/Pedidos';
+import { Favoritos } from './screens/Favoritos';
+import { Perfil } from './screens/Perfil';
 import { Configuracoes } from './screens/Configuracoes';
 import { Notificacoes } from './screens/Notificacoes';
 import { Cupons } from './screens/Cupons';
 import { Ajuda } from './screens/Ajuda';
-import { TelaCadastro } from '../src/screens/TelaCadastro';
+import { TelaCadastro } from './screens/TelaCadastro';
 import { ThemeProvider } from 'styled-components/native';
-import { theme } from '../src/theme/theme';
-import { TelaLogin } from '../src/screens/TelaLogin';
-import { Preferencias } from '../src/screens/TelaPreferencias';
+import { theme } from './theme/theme';
+import { TelaLogin } from './screens/TelaLogin';
+import { Preferencias } from './screens/TelaPreferencias';
 import { AlterarPreferencias } from './screens/AlterarPreferencias';
 
 const Tab = createBottomTabNavigator();
@@ -125,9 +125,8 @@ function AppRoutes() {
                 <Stack.Screen name="Configuracoes" component={Configuracoes} />
                 <Stack.Screen name="Notificacoes" component={Notificacoes} />
                 <Stack.Screen name="Cupons" component={Cupons} />
-                <Stack.Screen name="Ajuda" component={Ajuda} />
                 <Stack.Screen name="AlterarPreferencias" component={AlterarPreferencias} />
-                <Stack.Screen name="Perfil" component={Perfil} />
+                <Stack.Screen name="Ajuda" component={Ajuda} />
                 <Stack.Screen name="Main" component={TabRoutes} />
             </Stack.Navigator>
         </ThemeProvider>

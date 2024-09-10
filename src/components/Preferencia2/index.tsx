@@ -3,7 +3,6 @@ import { IconPref } from "../IconPref"
 import { Button, Container, ContainerButton, Row, SkipText, Title } from "../styles/Preferencias"
 import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
-import React from "react"
 
 export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
     const [pref2, setPref2] = useState([])
@@ -61,21 +60,18 @@ export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias2/pfizer.png')}
                         sourceActive={require('../../assets/preferencias2/pfizerAtivo.png')}
                         text="Pfizer"
-                        active={false}
                         onClick={() => handleIconClick("Pfizer")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias2/novartis.png')}
                         sourceActive={require('../../assets/preferencias2/novartisAtivo.png')}
                         text="Novartis"
-                        active={false}
                         onClick={() => handleIconClick("Novartis")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias2/roche.png')}
                         sourceActive={require('../../assets/preferencias2/rocheAtivo.png')}
                         text="Roche"
-                        active={false}
                         onClick={() => handleIconClick("Roche")}
                     />
                 </Row>
@@ -84,21 +80,18 @@ export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias2/merck.png')}
                         sourceActive={require('../../assets/preferencias2/merckAtivo.png')}
                         text="Merck"
-                        active={false}
                         onClick={() => handleIconClick("Merck")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias2/johnson.png')}
                         sourceActive={require('../../assets/preferencias2/johnsonAtivo.png')}
                         text={"Johnson and\nJohnson"}
-                        active={false}
                         onClick={() => handleIconClick("Johnson and Johnson")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias2/sanofi.png')}
                         sourceActive={require('../../assets/preferencias2/sanofiAtivo.png')}
                         text="Sanofi"
-                        active={false}
                         onClick={() => handleIconClick("Sanofi")}
                     />
                 </Row>
@@ -107,21 +100,18 @@ export const Preferencia2 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias2/astrazeneca.png')}
                         sourceActive={require('../../assets/preferencias2/astrazenecaAtivo.png')}
                         text="Astrazeneca"
-                        active={false}
                         onClick={() => handleIconClick("Astrazeneca")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias2/bayer.png')}
                         sourceActive={require('../../assets/preferencias2/bayerAtivo.png')}
                         text="Bayer"
-                        active={false}
                         onClick={() => handleIconClick("Bayer")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias2/abbott.png')}
                         sourceActive={require('../../assets/preferencias2/abbottAtivo.png')}
                         text={"Abbott\nLaboratories"}
-                        active={false}
                         onClick={() => handleIconClick("Abbott Laboratories")}
                     />
                 </Row>

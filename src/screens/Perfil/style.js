@@ -1,112 +1,112 @@
-import { StyleSheet } from "react-native";
+// scr/components/components.js
+import styled from 'styled-components/native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 35,
-    backgroundColor: "#F3F1F4",
-    justifyContent: 'flex-start',
-    alignItems: 'center', 
-  },
+export const Container = styled(View)`
+  flex: 1;
+  padding-top: 35px;
+  background-color: #F3F1F4;
+  justify-content: flex-start;
+  align-items: center;
+`;
 
-  containerTitle: {
-    width: '100%',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 20,
-    paddingBottom: 50,
-  },
+export const ContainerTitle = styled(View)`
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+`;
 
-  textTitle: {
-    fontSize: 22.2,
-    color: '#141414',
-    textAlign: 'center',
-  },
+export const TextTitle = styled(Text)`
+  font-size: 22.2px;
+  color: #141414;
+  text-align: center;
+`;
 
-  containerUser: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingBottom: 13, 
-  },
+export const ContainerUser = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 13px;
+`;
 
-  imageContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 50,
-    overflow: 'hidden',
-    marginBottom: 10,
-    marginLeft: -115,
-  },
+export const ImageContainer = styled(View)`
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin-left: -115px;
+`;
 
-  imageUser: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-  },
+export const ImageUser = styled(Image)`
+  width: 100%;
+  height: 100%;
+  resize-mode: cover;
+`;
 
-  textUser: {
-    fontSize: 21.2,
-    color: '#141414',
-    marginLeft: 15,
-  },
+export const TextUser = styled(Text)`
+  font-size: 21.2px;
+  color: #141414;
+  margin-left: 15px;
+`;
 
-  containerList: {
-    flex: 1,
-    alignItems: 'flex-start',
-    padding: 10,
-    width: '100%',
-  },
+export const ContainerList = styled(View)`
+  flex: 1;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+`;
 
-  containerListOpcoes: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-    marginLeft: 10,
-  },
+export const ContainerListOpcoes = styled(TouchableOpacity)`
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+`;
 
-  iconListOpcoes: {
-    marginRight: 13,
-  },
+export const IconListOpcoes = styled(Feather)`
+  margin-right: 13px;
+`;
 
-  textContainerListOpcoes: {
-    flexDirection: 'column',
-  },
+export const TextContainerListOpcoes = styled(View)`
+  flex-direction: column;
+`;
 
-  textContainerListOpcoes2: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    width: '100%',
-    flex: 1, 
-  },
+export const TextContainerListOpcoes2 = styled(View)`
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+`;
 
-  titleListOpcoes: {
-    fontSize: 18.2,
-    color: '#141414',
-  },
+export const TitleListOpcoes = styled(Text)`
+  font-size: 18.2px;
+  color: #141414;
+`;
 
-  subtitleListOpcoes: {
-    fontSize: 14.2,
-    color: '#8A8A8A',
-  },
+export const SubtitleListOpcoes = styled(Text)`
+  font-size: 14.2px;
+  color: #8A8A8A;
+`;
 
-  listSeparator: {
-    marginTop: 11,
-    marginBottom: 11,
-    marginLeft: 10,
-    height: 1,
-    borderWidth: 0.5,
-    borderColor: '#B3B3B3',
-    width: '93%',
-  },
+export const ListSeparator = styled(View)`
+  margin-top: 11px;
+  margin-bottom: 11px;
+  margin-left: 10px;
+  height: 1px;
+  border-width: 0.5px;
+  border-color: #B3B3B3;
+  width: 93%;
+`;
 
-  separator: {
-    marginTop: 30,
-  },
+export const Separator = styled(View)`
+  margin-top: 30px;
+`;
 
-  chevronIcon: {
-    marginLeft: 160, 
-  },
-
-});
+export const ChevronIcon = styled(Feather)`
+  margin-left: 160px;
+`;

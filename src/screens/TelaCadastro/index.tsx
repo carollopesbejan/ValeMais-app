@@ -7,43 +7,26 @@ import { FormField } from "../../components/FormField";
 import { MaterialIcons } from '@expo/vector-icons';
 import { FormButton } from '../../components/FormButton';
 import { HasAccount } from '../../components/HasAccount';
-import { useNavigation } from '@react-navigation/native';
 
-export function TelaCadastro() {
+export function TelaCadastro({ navigation }) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const navigation = useNavigation<any>()
-
-    const validateEmail = (email) => {
-        const regex = /^[a-zA-Z0-9.@-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return regex.test(email)
-    }
-
-    const validatePassword = (password) => {
-        const regex = /^[a-zA-Z0-9!@#$%_\\-]+$/;
-        return regex.test(password);
-    };
 
     const signUpWithEmail = async () => {
-        if (!email || email.length == 0 || !validateEmail(email)) {
-            Alert.alert(
-                "Atenção",
-                "Email inválido!"
-            )
+        if (!email || email.length == 0) {
+            Alert.alert("Email inválido!")
             console.log("Email inválido")
-        } else if (!validatePassword(password) || !password || password.length == 0 || password.length > 23 || password.length < 8) {
-            Alert.alert(
-                "Atenção",
-                "A senha deve conter mínimo de 8 caracteres e o máximo de 23 caracteres. " +
-                "Permitido: letras, números e os caracteres especiais: !-_@#$%"
-              )
+        } else if (!password || password.length == 0) { 
+            Alert.alert("Senha inválido!")
+            console.log("Senha inválida!")
+        } else if (password.length < 8) {
+            Alert.alert("A senha deve possuir 8 digitos!")
+            console.log("A senha deve possuir 8 digitos!")
         } else if (password != confirmPassword) {
-            Alert.alert(
-                "Atenção",
-                "As senhas devem ser iguais!"
-            )
+            Alert.alert("As senhas devem ser iguais!")
+            console.log("As senhas devem ser iguais!")
         } else {
             setLoading(true)
             const { error } = await supabase.auth.signUp({
@@ -51,18 +34,8 @@ export function TelaCadastro() {
                 password: password,
             })
             if (error) {
-                if (error.message === "User already registered") {
-                    Alert.alert(
-                        "Atenção",
-                        "Usuário já cadastrado!"
-                    )
-                    setLoading(false)
-                } else {
-                    console.log(error.message)
-                    console.log(error)
-                    Alert.alert(error.message)
-                    setLoading(false)
-                }
+                console.log(error.message)
+                Alert.alert(error.message)
             } else {
                 setLoading(false)
                 navigation.navigate("TelaPreferencias")

@@ -1,7 +1,7 @@
 import { FormButton } from "../FormButton"
 import { IconPref } from "../IconPref"
 import { Button, Container, ContainerButton, Row, SkipText, Title, RowLeft, Space } from "../styles/Preferencias"
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 
 export const Preferencia6 = ({ title, toHome, session }) => {
@@ -60,21 +60,18 @@ export const Preferencia6 = ({ title, toHome, session }) => {
                         source={require('../../assets/preferencias6/whatsapp.png')}
                         sourceActive={require('../../assets/preferencias6/whatsappAtivo.png')}
                         text="Whatsapp"
-                        active={false}
                         onClick={() => handleIconClick("whatsapp")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias6/notificacao.png')}
                         sourceActive={require('../../assets/preferencias6/notificacaoAtivo.png')}
                         text="Notificação"
-                        active={false}
                         onClick={() => handleIconClick("notificação")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias6/email.png')}
                         sourceActive={require('../../assets/preferencias6/emailAtivo.png')}
                         text="E-mail"
-                        active={false}
                         onClick={() => handleIconClick("e-mail")}
                     />
                 </Row>

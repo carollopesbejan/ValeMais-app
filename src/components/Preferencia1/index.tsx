@@ -1,8 +1,8 @@
 import { Container, Title, Row, SkipText, Button } from "../styles/Preferencias";
 import { IconPref } from "../IconPref";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FormButton } from "../FormButton";
-import { ContainerButton } from "../styles/ContainerButton";
+import { ContainerButton } from "../../screens/TelaPreferencias/style";
 import { supabase } from "../../lib/supabase";
 
 export const Preferencia1 = ({ title, nextComponent, toHome, session }) => {
@@ -60,21 +60,18 @@ export const Preferencia1 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias1/saude.png')}
                         sourceActive={require('../../assets/preferencias1/saudeAtivo.png')}
                         text="Saúde"
-                        active={false}
                         onClick={() => handleIconClick("Saúde")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias1/cabelo.png')} 
                         sourceActive={require('../../assets/preferencias1/cabeloAtivo.png')}
                         text="Cabelo"
-                        active={false}
                         onClick={() => handleIconClick("Cabelo")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias1/beleza.png')} 
                         sourceActive={require('../../assets/preferencias1/belezaAtivo.png')}
                         text="Beleza"
-                        active={false}
                         onClick={() => handleIconClick("Beleza")}
                     />
                 </Row>
@@ -83,21 +80,18 @@ export const Preferencia1 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias1/remedios.png')} 
                         sourceActive={require('../../assets/preferencias1/remediosAtivo.png')}
                         text="Remédios"
-                        active={false}
                         onClick={() => handleIconClick("Remédios")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias1/bebe.png')} 
                         sourceActive={require('../../assets/preferencias1/bebeAtivo.png')}
                         text={"Mamãe\ne bebê"}
-                        active={false}
                         onClick={() => handleIconClick("Mamãe e bebê")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias1/cuidado.png')} 
                         sourceActive={require('../../assets/preferencias1/cuidadoAtivo.png')}
                         text={"Cuidados\nDiários"}
-                        active={false}
                         onClick={() => handleIconClick("Cuidados Diários")}
                     />
                 </Row>
@@ -106,21 +100,18 @@ export const Preferencia1 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias1/vitamina.png')} 
                         sourceActive={require('../../assets/preferencias1/vitaminaAtivo.png')}
                         text={"Vitaminas e\nSuplementos"}
-                        active={false}
                         onClick={() => handleIconClick("Vitaminas e Suplementos")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias1/dermo.png')} 
                         sourceActive={require('../../assets/preferencias1/dermoAtivo.png')}
                         text={"Dermo\nCosméticos"}
-                        active={false}
                         onClick={() => handleIconClick("Dermo Cosméticos")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias1/unhas.png')} 
                         sourceActive={require('../../assets/preferencias1/unhasAtivo.png')}
                         text="Unhas"
-                        active={false}
                         onClick={() => handleIconClick("Unhas")}
                     />
                 </Row>

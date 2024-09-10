@@ -3,7 +3,6 @@ import { IconPref } from "../IconPref"
 import { Button, Container, ContainerButton, Row, SkipText, Title, RowLeft, Space } from "../styles/Preferencias"
 import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
-import React from "react"
 
 export const Preferencia4 = ({ title, nextComponent, toHome, session }) => {
     const [pref4, setPref4] = useState([])
@@ -61,21 +60,18 @@ export const Preferencia4 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias4/pequena.png')}
                         sourceActive={require('../../assets/preferencias4/pequenaAtivo.png')}
                         text={"Pequena (1 ou\n2 membros)"}
-                        active={false}
                         onClick={() => handleIconClick("1 ou 2")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias4/media.png')}
                         sourceActive={require('../../assets/preferencias4/mediaAtivo.png')}
                         text={"Média (3 ou 4\nmembros)"}
-                        active={false}
                         onClick={() => handleIconClick("3 ou 4")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias4/grande.png')}
                         sourceActive={require('../../assets/preferencias4/grandeAtivo.png')}
                         text={"Grande (5 ou\nmais membros)"}
-                        active={false}
                         onClick={() => handleIconClick("5 ou mais")}
                     />
                 </Row>

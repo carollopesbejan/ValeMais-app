@@ -1,7 +1,7 @@
 import { FormButton } from "../FormButton"
 import { IconPref } from "../IconPref"
 import { Button, Container, ContainerButton, Row, SkipText, Title, Space, RowLeft, RowPref5, RowPref5Left } from "../styles/Preferencias"
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
 
 export const Preferencia5 = ({ title, nextComponent, toHome, session }) => {
@@ -60,21 +60,18 @@ export const Preferencia5 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias5/menosDe2.png')}
                         sourceActive={require('../../assets/preferencias5/menosDe2Ativo.png')}
                         text={"Menos de 2\nsalários mínimos"}
-                        active={false}
                         onClick={() => handleIconClick("Menos de 2")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias5/entre2e5.png')}
                         sourceActive={require('../../assets/preferencias5/entre2e5Ativo.png')}
                         text={"Entre 2 e 5\nsalários mínimos"}
-                        active={false}
                         onClick={() => handleIconClick("Entre 2 e 5")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias5/entre6e7.png')}
                         sourceActive={require('../../assets/preferencias5/entre6e7Ativo.png')}
                         text={"Entre 6 e 7\nsalários mínimos"}
-                        active={false}
                         onClick={() => handleIconClick("Entre 6 e 7")}
                     />
                 </RowPref5>
@@ -83,7 +80,6 @@ export const Preferencia5 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias5/maisDe8.png')}
                         sourceActive={require('../../assets/preferencias5/maisDe8Ativo.png')}
                         text={"Mais de 8 salários\nmínimos"}
-                        active={false}
                         onClick={() => handleIconClick("Mais de 8")}
                     />
                 </RowPref5Left>

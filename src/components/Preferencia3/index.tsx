@@ -3,7 +3,6 @@ import { IconPref } from "../IconPref"
 import { Button, Container, ContainerButton, Row, SkipText, Title, Space, RowLeft } from "../styles/Preferencias"
 import { useState, useEffect } from "react"
 import { supabase } from "../../lib/supabase"
-import React from "react"
 
 export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
     const [pref3, setPref3] = useState([])
@@ -61,21 +60,18 @@ export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias3/1.png')}
                         sourceActive={require('../../assets/preferencias3/1Ativo.png')}
                         text="Até 1 vez"
-                        active={false}
                         onClick={() => handleIconClick("1")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias3/1ou2.png')}
                         sourceActive={require('../../assets/preferencias3/1ou2Ativo.png')}
                         text={"Entre 1 e 2\nvezes"}
-                        active={false}
                         onClick={() => handleIconClick("1 ou 2")}
                     />
                     <IconPref 
                         source={require('../../assets/preferencias3/3ou4.png')}
                         sourceActive={require('../../assets/preferencias3/3ou4Ativo.png')}
                         text={"Entre 3 e 4\nvezes"}
-                        active={false}
                         onClick={() => handleIconClick("3 ou 4")}
                     />
                 </Row>
@@ -84,7 +80,6 @@ export const Preferencia3 = ({ title, nextComponent, toHome, session }) => {
                         source={require('../../assets/preferencias3/5.png')}
                         sourceActive={require('../../assets/preferencias3/5Ativo.png')}
                         text={"Acima de 5\nvezes"}
-                        active={false}
                         onClick={() => handleIconClick("5 ou mais")}
                     />
                 </RowLeft>
