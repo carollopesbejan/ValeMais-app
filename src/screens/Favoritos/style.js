@@ -54,6 +54,7 @@ export const ButtonText = styled.Text`
   font-weight: ${(props) => (props.active ? 'bold' : 'normal')}; /* Texto em negrito na aba ativa */
 `;
 
+// Estilos para os Produtos
 export const ProductCard = styled.TouchableOpacity`
   background-color: #fff;
   width: 45%;
@@ -96,6 +97,7 @@ export const HeartIcon = styled.TouchableOpacity`
   right: 10px;
 `;
 
+// Estilos para "Favoritar"
 export const HeartText = styled.Text`
   font-size: 18px;
   color: #ff3e3e;
