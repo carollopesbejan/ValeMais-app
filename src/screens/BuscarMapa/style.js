@@ -1,11 +1,8 @@
-import { StyleSheet } from "react-native";
+import styled from "styled-components/native";
+import MapView from 'react-native-maps';
 
-export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#F3F1F4",
-      alignItems: 'center',
-      justifyContent: "center",
-    },
-
-});
+export const Map = styled(MapView)`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
