@@ -6,3 +6,8 @@ export const Map = styled(MapView)`
   width: 100%;
   height: 100%;
 `;
+
+export const TagMap = styled.View`
+  padding: 10px;
+  border-radius: 8px;
+`;

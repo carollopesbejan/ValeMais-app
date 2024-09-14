@@ -21,6 +21,7 @@
     "@rneui/themed": "^4.0.0-rc.8",
     "@supabase/supabase-js": "^2.44.4",
     "@types/styled-components-react-native": "^5.2.5",
+    "axios": "^1.7.7",
     "expo": "~51.0.26",
     "expo-constants": "~16.0.2",
     "expo-dev-client": "~4.0.23",
