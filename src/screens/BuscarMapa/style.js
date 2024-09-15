@@ -1,13 +1,13 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
+import MapView from 'react-native-maps';
 
-export const Container = styled.View`
+export const Map = styled(MapView)`
   flex: 1;
-  background-color: #F3F1F4;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
 `;
 
-export const Title = styled.Text`
-  font-size: 18px;
-  color: #000;
+export const TagMap = styled.View`
+  padding: 10px;
+  border-radius: 8px;
 `;
