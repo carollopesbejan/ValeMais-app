@@ -94,7 +94,7 @@ export function Splash3 () {
             <ProgressBar totalSteps={3} currentStep={3} />
 
             <ButtonContainer>
-                <TouchableOpacity onPress={() => navigation.navigate('Main')}>
+                <TouchableOpacity onPress={() => navigation.navigate('TelaLogin')}>
                     <TextButtonPrimary>Iniciar Economia</TextButtonPrimary>
                 </TouchableOpacity>
             </ButtonContainer>

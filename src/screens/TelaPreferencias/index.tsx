@@ -10,7 +10,7 @@ import { Preferencia5 } from "../../components/Preferencia5";
 import { Preferencia6 } from "../../components/preferencia6";
 
 export const Preferencias = ({ navigation }) => {
-    const [page, setPage] = useState(5)
+    const [page, setPage] = useState(0)
     const [session, setSession] = useState<Session | null>(null)
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export const Preferencias = ({ navigation }) => {
     }
 
     const toHome = () => {
-        navigation.navigate("Home")
+        navigation.navigate("Main")
     }
 
     const components = [

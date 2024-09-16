@@ -21,6 +21,7 @@ import {
   Separator,
   ChevronIcon
 } from './style';
+import { supabase } from '../../lib/supabase';
 
 type NavigationProp = {
   navigate: (screen: string) => void;
@@ -28,6 +29,17 @@ type NavigationProp = {
 
 export function Perfil() {
   const navigation = useNavigation<NavigationProp>();
+
+  const logOut = async () => {
+    const { error } = await supabase.auth.signOut()
+
+    if (error) {
+      console.error('Erro ao sair:', error.message);
+    } else {
+        console.log('Logout realizado com sucesso!');
+        navigation.navigate('TelaLogin');
+    }
+  }
 
   return (
     <Container>
