@@ -116,7 +116,7 @@ export function Perfil() {
 
         <ListSeparator />
 
-        <ContainerListOpcoes>
+        <ContainerListOpcoes onPress={() => logOut()}>
           <IconListOpcoes name="log-out" size={30} />
           <TextContainerListOpcoes>
             <TitleListOpcoes>Sair</TitleListOpcoes>
