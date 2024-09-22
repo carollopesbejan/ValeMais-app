@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import dogImg from '../../assets/dog.png';
 
@@ -22,13 +22,25 @@ import {
   ChevronIcon
 } from './style';
 import { supabase } from '../../lib/supabase';
+import { Session } from '@supabase/supabase-js';
 
 type NavigationProp = {
   navigate: (screen: string) => void;
 };
 
 export function Perfil() {
+  const [session, setSession] = useState<Session | null>(null)
   const navigation = useNavigation<NavigationProp>();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
 
   const logOut = async () => {
     const { error } = await supabase.auth.signOut()
@@ -51,7 +63,12 @@ export function Perfil() {
         <ImageContainer>
           <ImageUser source={dogImg} />
         </ImageContainer>
-        <TextUser>Usuário Fulano</TextUser>
+        {/* Verifica se a sessão e o usuário estão disponíveis */}
+        {session && session.user ? (
+          <TextUser>{ session.user.user_metadata?.name || 'Usuário' }</TextUser>
+        ) : (
+          <TextUser>Usuário</TextUser>
+        )}
       </ContainerUser>
 
       <ContainerList>

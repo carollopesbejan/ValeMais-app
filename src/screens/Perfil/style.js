@@ -8,7 +8,7 @@ export const Container = styled(View)`
   padding-top: 35px;
   background-color: #F3F1F4;
   justify-content: flex-start;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 export const ContainerTitle = styled(View)`
@@ -30,6 +30,7 @@ export const ContainerUser = styled(View)`
   align-items: center;
   justify-content: flex-start;
   padding-bottom: 13px;
+  padding-left: 10px;
 `;
 
 export const ImageContainer = styled(View)`
@@ -38,7 +39,7 @@ export const ImageContainer = styled(View)`
   border-radius: 50px;
   overflow: hidden;
   margin-bottom: 10px;
-  margin-left: -115px;
+  /* margin-left: -115px; */
 `;
 
 export const ImageUser = styled(Image)`

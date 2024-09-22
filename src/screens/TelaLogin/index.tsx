@@ -53,6 +53,7 @@ export const TelaLogin = () => {
                 navigation.navigate("Main")
             }
         }
+        setLoading(false)
     }
 
     GoogleSignin.configure({

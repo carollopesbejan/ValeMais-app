@@ -1,28 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import dogImg from "../../assets/dog.png";
 
-import { 
-  Container, 
-  ContainerTitle, 
-  TextTitleContainer, 
-  TextTitle, 
-  ChevronIcon, 
-  ContainerUser, 
-  TextUser, 
-  ImageContainer, 
-  ImageUser, 
-  TextOverlayContainer, 
-  TextOverlay, 
-  ContainerForms, 
-  InputContainer, 
-  TextForms, 
-  TextInputStyled,
-  ButtonContainer,
-  TextButtonSave,
-  TextButtonDelete
+import {
+    Container,
+    ContainerTitle,
+    TextTitleContainer,
+    TextTitle,
+    ChevronIcon,
+    ContainerUser,
+    TextUser,
+    ImageContainer,
+    ImageUser,
+    TextOverlayContainer,
+    TextOverlay,
+    ContainerForms,
+    InputContainer,
+    TextForms,
+    TextInputStyled,
+    ButtonContainer,
+    TextButtonSave,
+    TextButtonDelete
 } from './style';
+import { Session } from '@supabase/supabase-js';
+import { supabase } from '../../lib/supabase';
 
 type NavigationProp = {
     navigate: (screen: string) => void;
@@ -31,6 +33,17 @@ type NavigationProp = {
 export function Configuracoes() {
     const navigation = useNavigation<NavigationProp>();
     const [imageUri, setImageUri] = useState<string | null>(null);
+    const [session, setSession] = useState<Session | null>(null)
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            setSession(session)
+        })
+
+        supabase.auth.onAuthStateChange((_event, session) => {
+            setSession(session)
+        })
+    }, [])
 
     const selectImage = () => {
         // Lógica para selecionar imagem aqui
@@ -53,18 +66,23 @@ export function Configuracoes() {
                     </ContainerTitle>
 
                     <ContainerUser>
-                        <TextUser>Olá, usuário fulano</TextUser>
+                        {/* Verifica se a sessão e o usuário estão disponíveis */}
+                        {session && session.user ? (
+                            <TextUser>Olá, {session.user.user_metadata?.name || 'Usuário'}</TextUser>
+                        ) : (
+                            <TextUser>Usuário</TextUser>
+                        )}
 
                         <ImageContainer>
                             <TouchableOpacity onPress={selectImage}>
-                                <ImageUser source={imageUri ? { uri: imageUri } : dogImg}/>
+                                <ImageUser source={imageUri ? { uri: imageUri } : dogImg} />
                                 <TextOverlayContainer>
                                     <TextOverlay>Alterar Imagem</TextOverlay>
                                 </TextOverlayContainer>
                             </TouchableOpacity>
                         </ImageContainer>
                     </ContainerUser>
-                
+
                     <ContainerForms>
                         <InputContainer>
                             <TextForms>Como você gostaria de ser chamado?</TextForms>

@@ -9,6 +9,7 @@ import { FormButton } from '../../components/FormButton';
 import { HasAccount } from '../../components/HasAccount';
 
 export function TelaCadastro({ navigation }) {
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -32,10 +33,16 @@ export function TelaCadastro({ navigation }) {
             const { error } = await supabase.auth.signUp({
                 email: email,
                 password: password,
+                options: {
+                data: {
+                    name: name,
+                }
+            }
             })
             if (error) {
                 console.log(error.message)
                 Alert.alert(error.message)
+                setLoading(false)
             } else {
                 setLoading(false)
                 navigation.navigate("TelaPreferencias")
@@ -49,6 +56,14 @@ export function TelaCadastro({ navigation }) {
                 <MaterialIcons name="arrow-back-ios" size={24} color="#E8A009" />
             </ButtonArrow>
             <ContainerForms>
+                <ContainerField>
+                    <Label>Como você quer ser chamado?</Label>
+                    <FormField
+                        placeholder="João"
+                        setStateText={(text) => setName(text)}
+                        hidden={false}
+                    />
+                </ContainerField>
                 <ContainerField>
                     <Label>Qual é o seu e-mail?</Label>
                     <FormField
