@@ -25,15 +25,18 @@ import {
 } from './style';
 import { Session } from '@supabase/supabase-js';
 import { supabase } from '../../lib/supabase';
+import { ContainerField, Label } from '../TelaCadastro/style';
+import { FormField } from '../../components/FormField';
 
 type NavigationProp = {
     navigate: (screen: string) => void;
 };
 
 export function Configuracoes() {
-    const navigation = useNavigation<NavigationProp>();
     const [imageUri, setImageUri] = useState<string | null>(null);
     const [session, setSession] = useState<Session | null>(null)
+    const [name, setName] = useState('')
+    const navigation = useNavigation<NavigationProp>();
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -49,6 +52,20 @@ export function Configuracoes() {
         // Lógica para selecionar imagem aqui
     };
 
+    const handle = async () => {
+        console.log(name)
+
+        const { error } = await supabase.auth.updateUser({
+            data: { name: name }
+        });
+
+        if (error) {
+            console.log('Erro ao atualizar o nome:', error.message);
+        } else {
+            console.log('Nome atualizado com sucesso!');
+        }
+        navigation.navigate("Main")
+    }
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -84,12 +101,16 @@ export function Configuracoes() {
                     </ContainerUser>
 
                     <ContainerForms>
-                        <InputContainer>
-                            <TextForms>Como você gostaria de ser chamado?</TextForms>
-                            <TextInputStyled placeholder="Joana" />
-                        </InputContainer>
+                        <ContainerField>
+                            <Label>Como você gostaria de ser chamado?</Label>
+                            <FormField 
+                                placeholder="João"
+                                setStateText={(text) => setName(text)}
+                                hidden={false}
+                            />
+                        </ContainerField>
 
-                        <InputContainer>
+                        {/* <InputContainer>
                             <TextForms>Alterar Senha</TextForms>
                             <TextInputStyled placeholder="********" secureTextEntry={true} />
                         </InputContainer>
@@ -97,10 +118,10 @@ export function Configuracoes() {
                         <InputContainer>
                             <TextForms>Confirmar Senha</TextForms>
                             <TextInputStyled placeholder="********" secureTextEntry={true} />
-                        </InputContainer>
+                        </InputContainer> */}
                     </ContainerForms>
 
-                    <ButtonContainer onPress={() => null}>
+                    <ButtonContainer onPress={() => handle()}>
                         <TextButtonSave>Salvar</TextButtonSave>
                     </ButtonContainer>
 
