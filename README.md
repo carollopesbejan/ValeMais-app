@@ -8,6 +8,6 @@ O objetivo geral deste projeto é desenvolver uma abordagem inovadora e sustent�
 #### 📌 Visualização do projeto:
 
 <p align="center">
-  <img height="500em" src="/Video.mp4">
+  <img height="500em" src="/ValiOferta.gif">
 </p>
 
