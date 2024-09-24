@@ -1,4 +1,4 @@
-# ValiOferta <img height="30em" src="[https://cdn-icons-png.flaticon.com/512/4650/4650796.png](https://www.flaticon.com/br/icone-gratis/pilulas_1152525?term=p%C3%ADlulas&page=1&position=4&origin=tag&related_id=1152525)">
+# ValiOferta 💊
 Aplicativo de Visualização de Produtos e Itens Farmacêuticos
 
 ## Resumo
