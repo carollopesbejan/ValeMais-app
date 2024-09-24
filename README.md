@@ -1,5 +1,5 @@
 # ValiOferta 💊
-Aplicativo de Visualização de Produtos e Itens Farmacêuticos
+Aplicativo de Visualização de Produtos e Itens Farmacêuticos, desenvolvido durante a disciplina de PROJETO DE DESENVOLVIMENTO TECNOLÓGICO PARA O MUNDO II da UFRPE	
 
 ## Resumo
 
